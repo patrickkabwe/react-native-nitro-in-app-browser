@@ -13,9 +13,9 @@ A Simple React Native Nitro module for in-app browser.
 
 ## Installation
 
-> ⚠️ This package requires `react-native-nitro-modules` to be installed first.
-> 
-> See [react-native-nitro-modules](https://github.com/mrousavy/react-native-nitro-modules) for more information.
+> [!IMPORTANT]  
+> This package requires `react-native-nitro-modules` to be installed first.
+> See [react-native-nitro-modules](https://github.com/mrousavy/nitro) for more information.
 
 
 ```sh
