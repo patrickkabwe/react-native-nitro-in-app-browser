@@ -31,6 +31,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\" --fix",
     "lint-ci": "eslint \"**/*.{js,ts,tsx}\" -f @jamesacarr/github-actions",
     "typescript": "tsc --noEmit false",
+    "release": "bob build && release-it",
     "specs": "bun run --filter=\"**\" typescript && bun nitro-codegen --logLevel=\"debug\""
   },
   "keywords": [
@@ -68,11 +69,23 @@
     "react": "^18.3.1",
     "react-native": "^0.75.2",
     "react-native-nitro-modules": "0.13.0",
+    "react-native-builder-bob": "^0.30.0",
+    "release-it": "^17.6.0",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "release-it": {
+    "npm": {
+      "publish": true
+    },
+    "git": false,
+    "github": {
+      "release": false
+    },
+    "plugins": {}
   },
   "eslintConfig": {
     "root": true,
