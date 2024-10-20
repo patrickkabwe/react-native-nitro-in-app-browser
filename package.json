@@ -8,7 +8,7 @@
     "scripts": {
         "bootstrap": "bun --filter=\"**\" install && bun tsc && bun --filter=\"in-browser-app-example\" pods",
         "typescript": "bun --filter=\"**\" typescript",
-        "release": "release-it",
+        "release": "release-it && cd package && release-it",
         "clean": "rm -rf package/tsconfig.tsbuildinfo package/node_modules package/lib",
         "spec": "cd package && bun specs && cd .."
     },
