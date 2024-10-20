@@ -35,7 +35,13 @@
   },
   "keywords": [
     "react-native",
-    "nitro"
+    "in-app-browser",
+    "nitro-in-app-browser",
+    "new architecture",
+    "react native browser",
+    "react native in app browser",
+    "react native in-app browser",
+    "react-native-in-app-browser"
   ],
   "repository": {
     "type": "git",
