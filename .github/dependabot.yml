@@ -1,0 +1,22 @@
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+    reviewers:
+      - "patrickkabwe"
+  - package-ecosystem: "gradle"
+    directories:
+      - "/package/android"
+      - "/example/android/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+      - "kotlin"
+    reviewers:
+      - "patrickkabwe"

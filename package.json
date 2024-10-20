@@ -1,0 +1,67 @@
+{
+    "name": "react-native-nitro-in-app-browser",
+    "packageManager": "bun@1.1.31",
+    "private": true,
+    "version": "0.1.0",
+    "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
+    "author": "Patrick Kabwe <me@patrickkabwe.com> (https://github.com/patrickkabwe)",
+    "scripts": {
+        "bootstrap": "bun --filter=\"**\" install && bun tsc && bun --filter=\"in-browser-app-example\" pods",
+        "typescript": "bun --filter=\"**\" typescript",
+        "release": "release-it",
+        "clean": "rm -rf package/tsconfig.tsbuildinfo package/node_modules package/lib",
+        "spec":"cd package && bun specs && cd .."
+    },
+    "workspaces": [
+        "package",
+        "example"
+    ],
+    "devDependencies": {
+        "@release-it/conventional-changelog": "^8.0.1",
+        "@release-it/bumper": "^6.0.1",
+        "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
+        "release-it": "^17.6.0"
+    },
+    "release-it": {
+        "npm": {
+            "publish": false
+        },
+        "git": {
+            "commitMessage": "chore: release ${version}",
+            "tagName": "v${version}",
+            "requireCleanWorkingDir": false
+        },
+        "github": {
+            "release": true
+        },
+        "plugins": {
+            "@release-it/conventional-changelog": {
+                "preset": {
+                    "name": "conventionalcommits",
+                    "types": [
+                        {
+                            "type": "feat",
+                            "section": "✨ Features"
+                        },
+                        {
+                            "type": "perf",
+                            "section": "💨 Performance Improvements"
+                        },
+                        {
+                            "type": "fix",
+                            "section": "🐛 Bug Fixes"
+                        },
+                        {
+                            "type": "chore(deps)",
+                            "section": "🛠️ Dependency Upgrades"
+                        },
+                        {
+                            "type": "docs",
+                            "section": "📚 Documentation"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
