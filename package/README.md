@@ -20,6 +20,7 @@ A Simple React Native Nitro module for in-app browser.
 
 ```sh
 bun install react-native-nitro-in-app-browser react-native-nitro-modules
+cd ios && pod install && cd ..
 ```
 
 ## Usage
