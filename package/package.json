@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-in-app-browser",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A React Native Nitro module for in-app browser",
   "main": "lib/index",
   "module": "lib/index",

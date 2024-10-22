@@ -2,13 +2,13 @@
     "name": "react-native-nitro-in-app-browser",
     "packageManager": "bun@1.1.31",
     "private": true,
-    "version": "0.2.2",
+    "version": "0.3.1",
     "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
     "author": "Patrick Kabwe <me@patrickkabwe.com> (https://github.com/patrickkabwe)",
     "scripts": {
         "bootstrap": "bun --filter=\"**\" install && bun tsc && bun --filter=\"in-browser-app-example\" pods",
         "typescript": "bun --filter=\"**\" typescript",
-        "release": "release-it && cd package && release-it",
+        "release": "release-it",
         "clean": "rm -rf package/tsconfig.tsbuildinfo package/node_modules package/lib",
         "spec": "cd package && bun specs && cd .."
     },
