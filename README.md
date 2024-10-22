@@ -56,9 +56,9 @@ MIT
 
 ---
 
-Made with ❤️ by [Patrick Kabwe](https://github.com/patrickkabwe) and [contributors](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/graphs/contributors).
+Made with ❤️ by [Patrick Kabwe](https://github.com/patrickkabwe).
 
 
 ## Credits
 
-This package is based on the [react-native-nitro-modules](https://github.com/mrousavy/react-native-nitro-modules) package.
+This package is based on the [react-native-nitro-modules](https://github.com/mrousavy/nitro) package.
