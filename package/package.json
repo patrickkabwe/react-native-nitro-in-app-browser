@@ -1,16 +1,19 @@
 {
   "name": "react-native-nitro-in-app-browser",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A React Native Nitro module for in-app browser",
-  "main": "lib/index",
-  "module": "lib/index",
-  "types": "lib/index.d.ts",
+  "main": "./lib/commonjs/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/typescript/src/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [
     "src",
-    "react-native.config.js",
     "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "react-native.config.js",
     "android/build.gradle",
     "android/gradle.properties",
     "android/CMakeLists.txt",
@@ -68,8 +71,8 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-native": "^0.75.2",
+    "react-native-builder-bob": "^0.30.2",
     "react-native-nitro-modules": "0.13.0",
-    "react-native-builder-bob": "^0.30.0",
     "release-it": "^17.6.0",
     "typescript": "^5.5.4"
   },
@@ -120,5 +123,23 @@
     "trailingComma": "es5",
     "useTabs": false,
     "semi": false
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "commonjs"
+      ],
+      [
+        "module"
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.json"
+        }
+      ]
+    ]
   }
 }
