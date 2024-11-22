@@ -24,8 +24,8 @@
   HybridObjectRegistry::registerHybridObjectConstructor(
     "NitroInAppBrowser",
     []() -> std::shared_ptr<HybridObject> {
-      auto swiftPart = NitroInAppBrowser::NitroInAppBrowserAutolinking::createNitroInAppBrowser();
-      return std::make_shared<HybridNitroInAppBrowserSpecSwift>(swiftPart);
+      std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec> hybridObject = NitroInAppBrowser::NitroInAppBrowserAutolinking::createNitroInAppBrowser();
+      return hybridObject;
     }
   );
 }

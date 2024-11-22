@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-in-app-browser",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "A React Native Nitro module for in-app browser",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
@@ -9,11 +9,9 @@
   "source": "src/index",
   "files": [
     "src",
-    "lib",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
     "react-native.config.js",
+    "lib",
+    "nitrogen",
     "android/build.gradle",
     "android/gradle.properties",
     "android/CMakeLists.txt",
@@ -35,7 +33,7 @@
     "lint-ci": "eslint \"**/*.{js,ts,tsx}\" -f @jamesacarr/github-actions",
     "typescript": "tsc --noEmit false",
     "release": "bob build && release-it",
-    "specs": "bun run --filter=\"**\" typescript && bun nitro-codegen --logLevel=\"debug\""
+    "specs": "bun typescript && nitro-codegen --logLevel=\"debug\""
   },
   "keywords": [
     "react-native",
@@ -61,18 +59,18 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@react-native/eslint-config": "^0.75.2",
+    "@react-native/eslint-config": "^0.76.2",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.4",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "nitro-codegen": "^0.11.0",
+    "nitro-codegen": "^0.17.0",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
-    "react-native": "^0.75.2",
+    "react-native": "^0.76.2",
     "react-native-builder-bob": "^0.30.2",
-    "react-native-nitro-modules": "0.13.0",
+    "react-native-nitro-modules": "0.17.0",
     "release-it": "^17.6.0",
     "typescript": "^5.5.4"
   },

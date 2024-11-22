@@ -1,6 +1,9 @@
 import React from 'react';
 import { Button, SafeAreaView } from 'react-native';
-import { NitroInAppBrowser } from 'react-native-nitro-in-app-browser';
+import {
+  NitroInAppBrowser,
+  NitroInAppBrowserPresentationStyle,
+} from 'react-native-nitro-in-app-browser';
 
 const App = () => {
   return (
@@ -8,7 +11,12 @@ const App = () => {
       <Button
         title="Open Google"
         onPress={() => {
-          NitroInAppBrowser.open('https://www.google.com');
+          NitroInAppBrowser.open('https://www.google.com', {
+            barColor: '#fef0f0',
+            controlColor: '#000000',
+            dismissButtonLabel: 'close',
+            presentationStyle: NitroInAppBrowserPresentationStyle.PageSheet,
+          });
         }}
       />
     </SafeAreaView>

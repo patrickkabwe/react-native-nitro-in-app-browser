@@ -20,26 +20,26 @@ public extension NitroInAppBrowserOptions {
    */
   init(dismissButtonLabel: NitroInAppBrowserDismissButtonLabel?, presentationStyle: String?, barColor: String?, controlColor: String?) {
     self.init({ () -> bridge.std__optional_NitroInAppBrowserDismissButtonLabel_ in
-      if let actualValue = dismissButtonLabel {
-        return bridge.create_std__optional_NitroInAppBrowserDismissButtonLabel_(actualValue)
+      if let __unwrappedValue = dismissButtonLabel {
+        return bridge.create_std__optional_NitroInAppBrowserDismissButtonLabel_(__unwrappedValue)
       } else {
         return .init()
       }
     }(), { () -> bridge.std__optional_std__string_ in
-      if let actualValue = presentationStyle {
-        return bridge.create_std__optional_std__string_(std.string(actualValue))
+      if let __unwrappedValue = presentationStyle {
+        return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
       } else {
         return .init()
       }
     }(), { () -> bridge.std__optional_std__string_ in
-      if let actualValue = barColor {
-        return bridge.create_std__optional_std__string_(std.string(actualValue))
+      if let __unwrappedValue = barColor {
+        return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
       } else {
         return .init()
       }
     }(), { () -> bridge.std__optional_std__string_ in
-      if let actualValue = controlColor {
-        return bridge.create_std__optional_std__string_(std.string(actualValue))
+      if let __unwrappedValue = controlColor {
+        return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
       } else {
         return .init()
       }
@@ -54,8 +54,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     set {
       self.__dismissButtonLabel = { () -> bridge.std__optional_NitroInAppBrowserDismissButtonLabel_ in
-        if let actualValue = newValue {
-          return bridge.create_std__optional_NitroInAppBrowserDismissButtonLabel_(actualValue)
+        if let __unwrappedValue = newValue {
+          return bridge.create_std__optional_NitroInAppBrowserDismissButtonLabel_(__unwrappedValue)
         } else {
           return .init()
         }
@@ -67,8 +67,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     get {
       return { () -> String? in
-        if let actualValue = self.__presentationStyle.value {
-          return String(actualValue)
+        if let __unwrapped = self.__presentationStyle.value {
+          return String(__unwrapped)
         } else {
           return nil
         }
@@ -77,8 +77,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     set {
       self.__presentationStyle = { () -> bridge.std__optional_std__string_ in
-        if let actualValue = newValue {
-          return bridge.create_std__optional_std__string_(std.string(actualValue))
+        if let __unwrappedValue = newValue {
+          return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
         } else {
           return .init()
         }
@@ -90,8 +90,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     get {
       return { () -> String? in
-        if let actualValue = self.__barColor.value {
-          return String(actualValue)
+        if let __unwrapped = self.__barColor.value {
+          return String(__unwrapped)
         } else {
           return nil
         }
@@ -100,8 +100,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     set {
       self.__barColor = { () -> bridge.std__optional_std__string_ in
-        if let actualValue = newValue {
-          return bridge.create_std__optional_std__string_(std.string(actualValue))
+        if let __unwrappedValue = newValue {
+          return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
         } else {
           return .init()
         }
@@ -113,8 +113,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     get {
       return { () -> String? in
-        if let actualValue = self.__controlColor.value {
-          return String(actualValue)
+        if let __unwrapped = self.__controlColor.value {
+          return String(__unwrapped)
         } else {
           return nil
         }
@@ -123,8 +123,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     set {
       self.__controlColor = { () -> bridge.std__optional_std__string_ in
-        if let actualValue = newValue {
-          return bridge.create_std__optional_std__string_(std.string(actualValue))
+        if let __unwrappedValue = newValue {
+          return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
         } else {
           return .init()
         }

@@ -7,12 +7,23 @@ import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import com.facebook.react.bridge.ReactApplicationContext
 
-class NitroInAppBrowserImp(private val reactContext: ReactApplicationContext?) {
+class NitroInAppBrowserImpl(private val reactContext: ReactApplicationContext?) {
 
     fun open(url: String, options: NitroInAppBrowserOptions?){
+        if (url.isEmpty()){
+            Log.d(TAG, "Empty URL")
+            return
+        }
+        if (!url.startsWith("http://") && !url.startsWith("https://")){
+            Log.d(TAG, "Invalid URL")
+            return
+        }
+
         val customTabParams  = CustomTabColorSchemeParams.Builder()
         if (options?.barColor != null){
             customTabParams.setToolbarColor(getColor(options.barColor))
+            customTabParams.setSecondaryToolbarColor(getColor(options.barColor))
+            customTabParams.setNavigationBarColor(getColor(options.barColor))
         }
 
         val customTabIntent = CustomTabsIntent.Builder()
@@ -23,7 +34,7 @@ class NitroInAppBrowserImp(private val reactContext: ReactApplicationContext?) {
 
         val intent = customTabIntent.build()
         intent.apply {
-            if (!isPackageInstalled("com.android.chrome")){
+            if (!isPackageInstalled()){
                 Log.d(TAG, "Chrome not installed")
             } else {
                 intent.intent.setPackage("com.android.chrome")
@@ -46,9 +57,9 @@ class NitroInAppBrowserImp(private val reactContext: ReactApplicationContext?) {
         }
     }
 
-    private fun isPackageInstalled(packageName: String): Boolean {
+    private fun isPackageInstalled(): Boolean {
         return try {
-            reactContext?.packageManager?.getPackageInfo(packageName, 0)
+            reactContext?.packageManager?.getPackageInfo("com.android.chrome", 0)
             true
         } catch (e: PackageManager.NameNotFoundException) {
             Log.d(TAG, "Package not found")

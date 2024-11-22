@@ -35,15 +35,3 @@ public protocol HybridNitroInAppBrowserSpec: AnyObject, HybridObjectSpec {
   func open(url: String, options: NitroInAppBrowserOptions?) throws -> Void
   func close() throws -> Void
 }
-
-public extension HybridNitroInAppBrowserSpec {
-  /**
-   * Create a new instance of HybridNitroInAppBrowserSpecCxx for the given HybridNitroInAppBrowserSpec.
-   *
-   * Instances of HybridNitroInAppBrowserSpecCxx can be accessed from C++, and contain
-   * additional required bridging code for C++ <> Swift interop.
-   */
-  func createCxxBridge() -> HybridNitroInAppBrowserSpecCxx {
-    return HybridNitroInAppBrowserSpecCxx(self)
-  }
-}

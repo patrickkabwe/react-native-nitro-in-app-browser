@@ -8,24 +8,24 @@
 #pragma once
 
 // Forward declarations of C++ defined types
+// Forward declaration of `HybridNitroInAppBrowserSpec` to properly resolve imports.
+namespace margelo::nitro::inappbrowser { class HybridNitroInAppBrowserSpec; }
 // Forward declaration of `NitroInAppBrowserDismissButtonLabel` to properly resolve imports.
 namespace margelo::nitro::inappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
 // Forward declaration of `NitroInAppBrowserOptions` to properly resolve imports.
 namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 
+// Forward declarations of Swift defined types
+// Forward declaration of `HybridNitroInAppBrowserSpecCxx` to properly resolve imports.
+namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpecCxx; }
+
 // Include C++ defined types
-#if __has_include("NitroInAppBrowserDismissButtonLabel.hpp")
- #include "NitroInAppBrowserDismissButtonLabel.hpp"
-#endif
-#if __has_include("NitroInAppBrowserOptions.hpp")
- #include "NitroInAppBrowserOptions.hpp"
-#endif
-#if __has_include(<optional>)
- #include <optional>
-#endif
-#if __has_include(<string>)
- #include <string>
-#endif
+#include "HybridNitroInAppBrowserSpec.hpp"
+#include "NitroInAppBrowserDismissButtonLabel.hpp"
+#include "NitroInAppBrowserOptions.hpp"
+#include <memory>
+#include <optional>
+#include <string>
 
 /**
  * Contains specialized versions of C++ templated types so they can be accessed from Swift,
@@ -33,6 +33,7 @@ namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
  */
 namespace margelo::nitro::inappbrowser::bridge::swift {
 
+  // pragma MARK: std::optional<NitroInAppBrowserDismissButtonLabel>
   /**
    * Specialized version of `std::optional<NitroInAppBrowserDismissButtonLabel>`.
    */
@@ -41,6 +42,7 @@ namespace margelo::nitro::inappbrowser::bridge::swift {
     return std::optional<NitroInAppBrowserDismissButtonLabel>(value);
   }
   
+  // pragma MARK: std::optional<std::string>
   /**
    * Specialized version of `std::optional<std::string>`.
    */
@@ -49,6 +51,7 @@ namespace margelo::nitro::inappbrowser::bridge::swift {
     return std::optional<std::string>(value);
   }
   
+  // pragma MARK: std::optional<NitroInAppBrowserOptions>
   /**
    * Specialized version of `std::optional<NitroInAppBrowserOptions>`.
    */
@@ -56,5 +59,13 @@ namespace margelo::nitro::inappbrowser::bridge::swift {
   inline std::optional<NitroInAppBrowserOptions> create_std__optional_NitroInAppBrowserOptions_(const NitroInAppBrowserOptions& value) {
     return std::optional<NitroInAppBrowserOptions>(value);
   }
+  
+  // pragma MARK: std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>
+  /**
+   * Specialized version of `std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>`.
+   */
+  using std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ = std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>;
+  std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec> create_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer);
+  void* _Nonnull get_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ cppType);
 
 } // namespace margelo::nitro::inappbrowser::bridge::swift

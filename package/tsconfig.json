@@ -24,11 +24,15 @@
     "target": "esnext",
     "verbatimModuleSyntax": true
   },
-  "include": [
-    "src",
-    ".eslintrc.js",
-    "babel.config.js",
-    "react-native.config.js"
+  "exclude": [
+    "**/node_modules",
+    "**/lib",
+    "**/.eslintrc.js",
+    "**/.prettierrc.js",
+    "**/jest.config.js",
+    "**/babel.config.js",
+    "**/metro.config.js",
+    "**/tsconfig.json"
   ],
-  "exclude": ["node_modules", "lib", "docs", "example"]
+  "include": ["src"]
 }

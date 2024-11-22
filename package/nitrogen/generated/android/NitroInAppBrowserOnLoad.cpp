@@ -13,6 +13,7 @@
 
 #include "JHybridNitroInAppBrowserSpec.hpp"
 #include <NitroModules/JNISharedPtr.hpp>
+#include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::inappbrowser {
 
@@ -29,15 +30,8 @@ int initialize(JavaVM* vm) {
     HybridObjectRegistry::registerHybridObjectConstructor(
       "NitroInAppBrowser",
       []() -> std::shared_ptr<HybridObject> {
-        static auto javaClass = jni::findClassStatic("com/margelo/nitro/inappbrowser/NitroInAppBrowser");
-        static auto defaultConstructor = javaClass->getConstructor<JHybridNitroInAppBrowserSpec::javaobject()>();
-    
-        auto instance = javaClass->newObject(defaultConstructor);
-    #ifdef NITRO_DEBUG
-        if (instance == nullptr) [[unlikely]] {
-          throw std::runtime_error("Failed to create an instance of \"JHybridNitroInAppBrowserSpec\" - the constructor returned null!");
-        }
-    #endif
+        static DefaultConstructableObject<JHybridNitroInAppBrowserSpec::javaobject> object("com/margelo/nitro/inappbrowser/NitroInAppBrowser");
+        auto instance = object.create();
         auto globalRef = jni::make_global(instance);
         return JNISharedPtr::make_shared_from_jni<JHybridNitroInAppBrowserSpec>(globalRef);
       }

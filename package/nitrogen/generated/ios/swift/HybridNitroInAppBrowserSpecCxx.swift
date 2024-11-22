@@ -9,6 +9,30 @@ import Foundation
 import NitroModules
 
 /**
+ * Helper class for converting instances of `HybridNitroInAppBrowserSpecCxx` from- and to unsafe pointers.
+ * This is useful to pass Swift classes to C++, without having to strongly type the C++ function signature.
+ * The actual Swift type can be included in the .cpp file, without having to forward-declare anything in .hpp.
+ */
+public final class HybridNitroInAppBrowserSpecCxxUnsafe {
+  /**
+   * Casts a `HybridNitroInAppBrowserSpecCxx` instance to a retained unsafe raw pointer.
+   * This acquires one additional strong reference on the object!
+   */
+  public static func toUnsafe(_ instance: HybridNitroInAppBrowserSpecCxx) -> UnsafeMutableRawPointer {
+    return Unmanaged.passRetained(instance).toOpaque()
+  }
+
+  /**
+   * Casts an unsafe pointer to a `HybridNitroInAppBrowserSpecCxx`.
+   * The pointer has to be a retained opaque `Unmanaged<HybridNitroInAppBrowserSpecCxx>`.
+   * This removes one strong reference from the object!
+   */
+  public static func fromUnsafe(_ pointer: UnsafeMutableRawPointer) -> HybridNitroInAppBrowserSpecCxx {
+    return Unmanaged<HybridNitroInAppBrowserSpecCxx>.fromOpaque(pointer).takeRetainedValue()
+  }
+}
+
+/**
  * A class implementation that bridges HybridNitroInAppBrowserSpec over to C++.
  * In C++, we cannot use Swift protocols - so we need to wrap it in a class to make it strongly defined.
  *
@@ -28,23 +52,23 @@ public class HybridNitroInAppBrowserSpecCxx {
   /**
    * Holds an instance of the `HybridNitroInAppBrowserSpec` Swift protocol.
    */
-  private var implementation: HybridNitroInAppBrowserSpec
-
-  /**
-   * Get the actual `HybridNitroInAppBrowserSpec` instance this class wraps.
-   */
-  @inline(__always)
-  public func getHybridNitroInAppBrowserSpec() -> HybridNitroInAppBrowserSpec {
-    return implementation
-  }
+  private var __implementation: any HybridNitroInAppBrowserSpec
 
   /**
    * Create a new `HybridNitroInAppBrowserSpecCxx` that wraps the given `HybridNitroInAppBrowserSpec`.
    * All properties and methods bridge to C++ types.
    */
-  public init(_ implementation: HybridNitroInAppBrowserSpec) {
-    self.implementation = implementation
+  public init(_ implementation: some HybridNitroInAppBrowserSpec) {
+    self.__implementation = implementation
     /* no base class */
+  }
+
+  /**
+   * Get the actual `HybridNitroInAppBrowserSpec` instance this class wraps.
+   */
+  @inline(__always)
+  public func getHybridNitroInAppBrowserSpec() -> any HybridNitroInAppBrowserSpec {
+    return __implementation
   }
 
   /**
@@ -53,11 +77,11 @@ public class HybridNitroInAppBrowserSpecCxx {
   public var hybridContext: margelo.nitro.HybridContext {
     @inline(__always)
     get {
-      return self.implementation.hybridContext
+      return self.__implementation.hybridContext
     }
     @inline(__always)
     set {
-      self.implementation.hybridContext = newValue
+      self.__implementation.hybridContext = newValue
     }
   }
 
@@ -67,7 +91,7 @@ public class HybridNitroInAppBrowserSpecCxx {
    */
   @inline(__always)
   public var memorySize: Int {
-    return self.implementation.memorySize
+    return self.__implementation.memorySize
   }
 
   // Properties
@@ -77,28 +101,28 @@ public class HybridNitroInAppBrowserSpecCxx {
   @inline(__always)
   public func open(url: std.string, options: bridge.std__optional_NitroInAppBrowserOptions_) -> Void {
     do {
-      try self.implementation.open(url: String(url), options: { () -> NitroInAppBrowserOptions? in
-        if let actualValue = options.value {
-          return actualValue
+      try self.__implementation.open(url: String(url), options: { () -> NitroInAppBrowserOptions? in
+        if let __unwrapped = options.value {
+          return __unwrapped
         } else {
           return nil
         }
       }())
       return 
     } catch {
-      let message = "\(error.localizedDescription)"
-      fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(message))")
+      let __message = "\(error.localizedDescription)"
+      fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")
     }
   }
   
   @inline(__always)
   public func close() -> Void {
     do {
-      try self.implementation.close()
+      try self.__implementation.close()
       return 
     } catch {
-      let message = "\(error.localizedDescription)"
-      fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(message))")
+      let __message = "\(error.localizedDescription)"
+      fatalError("Swift errors can currently not be propagated to C++! See https://github.com/swiftlang/swift/issues/75290 (Error: \(__message))")
     }
   }
 }

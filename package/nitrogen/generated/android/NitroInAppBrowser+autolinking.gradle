@@ -13,6 +13,8 @@
 /// apply from: '../nitrogen/generated/android/NitroInAppBrowser+autolinking.gradle'
 /// ```
 
+logger.warn("[NitroModules] 🔥 NitroInAppBrowser is boosted by nitro!")
+
 android {
   sourceSets {
     main {

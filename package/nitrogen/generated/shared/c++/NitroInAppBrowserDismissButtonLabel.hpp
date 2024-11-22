@@ -50,7 +50,7 @@ namespace margelo::nitro {
         case hashString("done"): return NitroInAppBrowserDismissButtonLabel::DONE;
         case hashString("close"): return NitroInAppBrowserDismissButtonLabel::CLOSE;
         default: [[unlikely]]
-          throw std::runtime_error("Cannot convert \"" + unionValue + "\" to enum NitroInAppBrowserDismissButtonLabel - invalid value!");
+          throw std::invalid_argument("Cannot convert \"" + unionValue + "\" to enum NitroInAppBrowserDismissButtonLabel - invalid value!");
       }
     }
     static inline jsi::Value toJSI(jsi::Runtime& runtime, NitroInAppBrowserDismissButtonLabel arg) {
@@ -59,7 +59,7 @@ namespace margelo::nitro {
         case NitroInAppBrowserDismissButtonLabel::DONE: return JSIConverter<std::string>::toJSI(runtime, "done");
         case NitroInAppBrowserDismissButtonLabel::CLOSE: return JSIConverter<std::string>::toJSI(runtime, "close");
         default: [[unlikely]]
-          throw std::runtime_error("Cannot convert NitroInAppBrowserDismissButtonLabel to JS - invalid value: "
+          throw std::invalid_argument("Cannot convert NitroInAppBrowserDismissButtonLabel to JS - invalid value: "
                                     + std::to_string(static_cast<int>(arg)) + "!");
       }
     }
