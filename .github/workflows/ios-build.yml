@@ -70,8 +70,8 @@ jobs:
         run: "set -o pipefail && xcodebuild \
           CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ \
           -derivedDataPath build -UseModernBuildSystem=YES \
-          -workspace InBrowserAppExample.xcworkspace \
-          -scheme InBrowserAppExample \
+          -workspace ExampleApp.xcworkspace \
+          -scheme ExampleApp \
           -sdk iphonesimulator \
           -configuration Debug \
           -destination 'platform=iOS Simulator,name=iPhone 15' \
@@ -120,8 +120,8 @@ jobs:
         run: "set -o pipefail && xcodebuild \
           CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ \
           -derivedDataPath build -UseModernBuildSystem=YES \
-          -workspace InBrowserAppExample.xcworkspace \
-          -scheme InBrowserAppExample \
+          -workspace ExampleApp.xcworkspace \
+          -scheme ExampleApp \
           -sdk iphonesimulator \
           -configuration Debug \
           -destination 'platform=iOS Simulator,name=iPhone 15' \
