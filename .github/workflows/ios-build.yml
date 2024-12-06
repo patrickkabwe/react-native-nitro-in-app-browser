@@ -5,24 +5,24 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/build-ios.yml'
+      - '.github/workflows/ios-build.yml'
       - 'example/ios/**'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/ios/**'
-      - 'package/cpp/**'
-      - 'package/ios/**'
+      - 'react-native-nitro-in-app-browser/cpp/**'
+      - 'react-native-nitro-in-app-browser/ios/**'
       - '**/Podfile.lock'
       - '**/*.podspec'
       - '**/react-native.config.js'
       - '**/nitro.json'
   pull_request:
     paths:
-      - '.github/workflows/build-ios.yml'
+      - '.github/workflows/ios-build.yml'
       - 'example/ios/**'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/ios/**'
-      - 'package/cpp/**'
-      - 'package/ios/**'
+      - 'react-native-nitro-in-app-browser/cpp/**'
+      - 'react-native-nitro-in-app-browser/ios/**'
       - '**/Podfile.lock'
       - '**/*.podspec'
       - '**/react-native.config.js'
@@ -34,7 +34,7 @@ env:
 jobs:
   build_new:
     name: Build iOS Example App (new architecture)
-    runs-on: macOS-latest
+    runs-on: macOS-15
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -74,13 +74,13 @@ jobs:
           -scheme ExampleApp \
           -sdk iphonesimulator \
           -configuration Debug \
-          -destination 'platform=iOS Simulator,name=iPhone 15' \
+          -destination 'platform=iOS Simulator,name=iPhone 16' \
           build \
           CODE_SIGNING_ALLOWED=NO | xcpretty"
 
   build_old:
     name: Build iOS Example App (old architecture)
-    runs-on: macOS-latest
+    runs-on: macOS-15
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -124,6 +124,6 @@ jobs:
           -scheme ExampleApp \
           -sdk iphonesimulator \
           -configuration Debug \
-          -destination 'platform=iOS Simulator,name=iPhone 15' \
+          -destination 'platform=iOS Simulator,name=iPhone 16' \
           build \
           CODE_SIGNING_ALLOWED=NO | xcpretty"

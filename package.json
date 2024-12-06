@@ -9,11 +9,10 @@
         "bootstrap": "bun --filter=\"**\" install && bun tsc && bun --filter=\"in-browser-app-example\" pods",
         "typescript": "bun --filter=\"**\" typescript",
         "release": "release-it",
-        "clean": "rm -rf package/tsconfig.tsbuildinfo package/node_modules package/lib",
-        "spec": "cd package && bun specs && cd .."
+        "clean": "rm -rf react-native-nitro-in-app-browser/tsconfig.tsbuildinfo react-native-nitro-in-app-browser/node_modules react-native-nitro-in-app-browser/lib"
     },
     "workspaces": [
-        "package",
+        "react-native-nitro-in-app-browser",
         "example"
     ],
     "devDependencies": {
