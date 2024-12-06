@@ -11,7 +11,7 @@ const App = () => {
       <Button
         title="Open Google"
         onPress={() => {
-          NitroInAppBrowser.open('https://www.google.com', {
+          NitroInAppBrowser.open('https://nowietech.com', {
             barColor: '#fef0f0',
             controlColor: '#000000',
             dismissButtonLabel: 'close',

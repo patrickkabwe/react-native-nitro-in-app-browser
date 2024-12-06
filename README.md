@@ -46,17 +46,13 @@ const App = () => {
 export default App;
 ```
 
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
 ## License
     
 MIT
 
 ---
 
-Made with ❤️ by [Patrick Kabwe](https://github.com/patrickkabwe).
+Created with [Create Nitro Modules](https://github.com/patrickkabwe/create-nitro-module)
 
 
 ## Credits

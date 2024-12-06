@@ -5,23 +5,23 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/build-android.yml'
+      - '.github/workflows/android-build.yml'
       - 'example/android/**'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/android/**'
-      - 'package/cpp/**'
-      - 'package/android/**'
+      - 'react-native-nitro-in-app-browser/cpp/**'
+      - 'react-native-nitro-in-app-browser/android/**'
       - '**/bun.lockb'
       - '**/react-native.config.js'
       - '**/nitro.json'
   pull_request:
     paths:
-      - '.github/workflows/build-android.yml'
+      - '.github/workflows/android-build.yml'
       - 'example/android/**'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/android/**'
-      - 'package/cpp/**'
-      - 'package/android/**'
+      - 'react-native-nitro-in-app-browser/cpp/**'
+      - 'react-native-nitro-in-app-browser/android/**'
       - '**/bun.lockb'
       - '**/react-native.config.js'
       - '**/nitro.json'

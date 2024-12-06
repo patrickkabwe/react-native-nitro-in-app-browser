@@ -18,5 +18,9 @@ import com.facebook.proguard.annotations.DoNotStrip
 enum class NitroInAppBrowserDismissButtonLabel {
   CANCEL,
   DONE,
-  CLOSE
+  CLOSE;
+
+  @DoNotStrip
+  @Keep
+  private val _ordinal = ordinal
 }
