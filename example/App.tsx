@@ -9,7 +9,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <Button
-        title="Open Google"
+        title="Open Nowie Tech"
         onPress={() => {
           NitroInAppBrowser.open('https://nowietech.com', {
             barColor: '#fef0f0',
