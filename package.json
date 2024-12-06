@@ -2,7 +2,7 @@
     "name": "react-native-nitro-in-app-browser",
     "packageManager": "bun@1.1.31",
     "private": true,
-    "version": "0.4.0",
+    "version": "0.4.1",
     "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
     "author": "Patrick Kabwe <me@patrickkabwe.com> (https://github.com/patrickkabwe)",
     "scripts": {
