@@ -19,6 +19,9 @@ namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 #include "HybridNitroInAppBrowserSpec.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
 #include "NitroInAppBrowserOptions.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/Result.hpp>
+#include <exception>
 #include <memory>
 #include <optional>
 #include <string>
@@ -33,8 +36,8 @@ namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 #include <NitroModules/RuntimeError.hpp>
 
 // Forward declarations of Swift defined types
-// Forward declaration of `HybridNitroInAppBrowserSpecCxx` to properly resolve imports.
-namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpecCxx; }
+// Forward declaration of `HybridNitroInAppBrowserSpec_cxx` to properly resolve imports.
+namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpec_cxx; }
 
 // Include Swift defined types
 #if __has_include("NitroInAppBrowser-Swift.h")

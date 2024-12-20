@@ -6,17 +6,20 @@ import android.util.Log
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import com.facebook.react.bridge.ReactApplicationContext
+import com.margelo.nitro.core.Promise
 
 class NitroInAppBrowserImpl(private val reactContext: ReactApplicationContext?) {
 
-    fun open(url: String, options: NitroInAppBrowserOptions?){
+    private val chromePackageName = "com.android.chrome"
+
+    fun open(url: String, options: NitroInAppBrowserOptions?): Promise<Unit> {
         if (url.isEmpty()){
             Log.d(TAG, "Empty URL")
-            return
+            throw Error("Empty URL")
         }
         if (!url.startsWith("http://") && !url.startsWith("https://")){
             Log.d(TAG, "Invalid URL")
-            return
+            throw Error("Invalid URL")
         }
 
         val customTabParams  = CustomTabColorSchemeParams.Builder()
@@ -37,11 +40,12 @@ class NitroInAppBrowserImpl(private val reactContext: ReactApplicationContext?) 
             if (!isPackageInstalled()){
                 Log.d(TAG, "Chrome not installed")
             } else {
-                intent.intent.setPackage("com.android.chrome")
+                intent.intent.setPackage(chromePackageName)
             }
         }
-        val currentActivity = reactContext?.currentActivity ?: return
+        val currentActivity = reactContext?.currentActivity ?: throw Error("No Activity")
         intent.launchUrl(currentActivity, Uri.parse(url))
+        return Promise.resolved(Unit)
     }
 
     fun close(){
@@ -59,10 +63,9 @@ class NitroInAppBrowserImpl(private val reactContext: ReactApplicationContext?) 
 
     private fun isPackageInstalled(): Boolean {
         return try {
-            reactContext?.packageManager?.getPackageInfo("com.android.chrome", 0)
+            reactContext?.packageManager?.getPackageInfo(chromePackageName, 0)
             true
         } catch (e: PackageManager.NameNotFoundException) {
-            Log.d(TAG, "Package not found")
             false
         }
     }

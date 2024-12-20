@@ -51,7 +51,7 @@ namespace margelo::nitro::inappbrowser {
 
   public:
     // Methods
-    void open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) override;
+    std::shared_ptr<Promise<void>> open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) override;
     void close() override;
 
   private:

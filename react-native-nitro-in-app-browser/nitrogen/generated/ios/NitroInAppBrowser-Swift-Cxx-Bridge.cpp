@@ -10,14 +10,13 @@
 // Include C++ implementation defined types
 #include "HybridNitroInAppBrowserSpecSwift.hpp"
 #include "NitroInAppBrowser-Swift-Cxx-Umbrella.hpp"
-#include <NitroModules/HybridContext.hpp>
 
 namespace margelo::nitro::inappbrowser::bridge::swift {
 
   // pragma MARK: std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>
   std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec> create_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer) {
-    NitroInAppBrowser::HybridNitroInAppBrowserSpecCxx swiftPart = NitroInAppBrowser::HybridNitroInAppBrowserSpecCxxUnsafe::fromUnsafe(swiftUnsafePointer);
-    return HybridContext::getOrCreate<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpecSwift>(swiftPart);
+    NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx swiftPart = NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpecSwift>(swiftPart);
   }
   void* _Nonnull get_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ cppType) {
     std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpecSwift>(cppType);
@@ -26,8 +25,8 @@ namespace margelo::nitro::inappbrowser::bridge::swift {
       throw std::runtime_error("Class \"HybridNitroInAppBrowserSpec\" is not implemented in Swift!");
     }
   #endif
-    NitroInAppBrowser::HybridNitroInAppBrowserSpecCxx swiftPart = swiftWrapper->getSwiftPart();
-    return NitroInAppBrowser::HybridNitroInAppBrowserSpecCxxUnsafe::toUnsafe(swiftPart);
+    NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx swiftPart = swiftWrapper->getSwiftPart();
+    return swiftPart.toUnsafe();
   }
 
 } // namespace margelo::nitro::inappbrowser::bridge::swift

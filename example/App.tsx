@@ -10,13 +10,17 @@ const App = () => {
     <SafeAreaView>
       <Button
         title="Open Nowie Tech"
-        onPress={() => {
-          NitroInAppBrowser.open('https://nowietech.com', {
-            barColor: '#fef0f0',
-            controlColor: '#000000',
-            dismissButtonLabel: 'close',
-            presentationStyle: NitroInAppBrowserPresentationStyle.PageSheet,
-          });
+        onPress={async () => {
+          try {
+            await NitroInAppBrowser.open('https://nowietech.com', {
+              barColor: 'purple',
+              controlColor: '#000000',
+              dismissButtonLabel: 'close',
+              presentationStyle: NitroInAppBrowserPresentationStyle.FullScreen,
+            });
+          } catch (error) {
+            console.error(error);
+          }
         }}
       />
     </SafeAreaView>

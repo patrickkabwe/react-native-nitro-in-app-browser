@@ -43,7 +43,7 @@ abstract class HybridNitroInAppBrowserSpec: HybridObject() {
   // Methods
   @DoNotStrip
   @Keep
-  abstract fun open(url: String, options: NitroInAppBrowserOptions?): Unit
+  abstract fun open(url: String, options: NitroInAppBrowserOptions?): Promise<Unit>
   
   @DoNotStrip
   @Keep

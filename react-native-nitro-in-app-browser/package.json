@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-in-app-browser",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A React Native Nitro module for in-app browser",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
@@ -31,7 +31,8 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf android/build node_modules/**/android/build lib",
     "release": "release-it",
-    "specs": "bun typecheck && nitro-codegen --logLevel=\"debug\""
+    "codegen": "bun typecheck && nitro-codegen --logLevel=\"debug\"",
+    "postcodegen": "bun run build"
   },
   "keywords": [
     "react-native",
@@ -63,12 +64,12 @@
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "nitro-codegen": "^0.18.1",
     "prettier": "^3.3.3",
-    "react": "^18.3.1",
-    "react-native": "^0.76.2",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
     "react-native-builder-bob": "^0.34.0",
-    "react-native-nitro-modules": "0.18.2",
+    "nitro-codegen": "0.19.0",
+    "react-native-nitro-modules": "0.19.0",
     "release-it": "^17.6.0",
     "typescript": "^5.5.4"
   },

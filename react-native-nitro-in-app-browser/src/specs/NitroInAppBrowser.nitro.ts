@@ -5,17 +5,18 @@ export type NitroInAppBrowserDismissButtonLabel = 'cancel' | 'done' | 'close'
 export enum NitroInAppBrowserPresentationStyle {
   PageSheet = 'pageSheet',
   FormSheet = 'formSheet',
+  FullScreen = 'fullScreen',
 }
 
 export interface NitroInAppBrowserOptions {
   dismissButtonLabel?: NitroInAppBrowserDismissButtonLabel
-  presentationStyle?: string // formSheet or pageSheet
+  presentationStyle?: string // NitroInAppBrowserPresentationStyle
   barColor?: string
   controlColor?: string
 }
 
 export interface NitroInAppBrowser
   extends HybridObject<{ ios: 'swift'; android: 'kotlin' }> {
-  open(url: string, options?: NitroInAppBrowserOptions): void
+  open(url: string, options?: NitroInAppBrowserOptions): Promise<void>
   close(): void
 }

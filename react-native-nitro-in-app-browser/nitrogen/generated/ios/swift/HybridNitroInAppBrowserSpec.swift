@@ -8,30 +8,43 @@
 import Foundation
 import NitroModules
 
-/**
- * A Swift protocol representing the NitroInAppBrowser HybridObject.
- * Implement this protocol to create Swift-based instances of NitroInAppBrowser.
- *
- * When implementing this protocol, make sure to initialize `hybridContext` - example:
- * ```
- * public class HybridNitroInAppBrowser : HybridNitroInAppBrowserSpec {
- *   // Initialize HybridContext
- *   var hybridContext = margelo.nitro.HybridContext()
- *
- *   // Return size of the instance to inform JS GC about memory pressure
- *   var memorySize: Int {
- *     return getSizeOf(self)
- *   }
- *
- *   // ...
- * }
- * ```
- */
-public protocol HybridNitroInAppBrowserSpec: AnyObject, HybridObjectSpec {
+/// See ``HybridNitroInAppBrowserSpec``
+public protocol HybridNitroInAppBrowserSpec_protocol: AnyObject {
   // Properties
   
 
   // Methods
-  func open(url: String, options: NitroInAppBrowserOptions?) throws -> Void
+  func open(url: String, options: NitroInAppBrowserOptions?) throws -> Promise<Void>
   func close() throws -> Void
 }
+
+/// See ``HybridNitroInAppBrowserSpec``
+public class HybridNitroInAppBrowserSpec_base: HybridObjectSpec {
+  private weak var cxxWrapper: HybridNitroInAppBrowserSpec_cxx? = nil
+  public func getCxxWrapper() -> HybridNitroInAppBrowserSpec_cxx {
+  #if DEBUG
+    guard self is HybridNitroInAppBrowserSpec else {
+      fatalError("`self` is not a `HybridNitroInAppBrowserSpec`! Did you accidentally inherit from `HybridNitroInAppBrowserSpec_base` instead of `HybridNitroInAppBrowserSpec`?")
+    }
+  #endif
+    if let cxxWrapper = self.cxxWrapper {
+      return cxxWrapper
+    } else {
+      let cxxWrapper = HybridNitroInAppBrowserSpec_cxx(self as! HybridNitroInAppBrowserSpec)
+      self.cxxWrapper = cxxWrapper
+      return cxxWrapper
+    }
+  }
+  public var memorySize: Int { return 0 }
+}
+
+/**
+ * A Swift base-protocol representing the NitroInAppBrowser HybridObject.
+ * Implement this protocol to create Swift-based instances of NitroInAppBrowser.
+ * ```swift
+ * class HybridNitroInAppBrowser : HybridNitroInAppBrowserSpec {
+ *   // ...
+ * }
+ * ```
+ */
+public typealias HybridNitroInAppBrowserSpec = HybridNitroInAppBrowserSpec_protocol & HybridNitroInAppBrowserSpec_base

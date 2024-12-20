@@ -16,13 +16,17 @@ namespace margelo::nitro::inappbrowser { enum class NitroInAppBrowserDismissButt
 namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 
 // Forward declarations of Swift defined types
-// Forward declaration of `HybridNitroInAppBrowserSpecCxx` to properly resolve imports.
-namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpecCxx; }
+// Forward declaration of `HybridNitroInAppBrowserSpec_cxx` to properly resolve imports.
+namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpec_cxx; }
 
 // Include C++ defined types
 #include "HybridNitroInAppBrowserSpec.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
 #include "NitroInAppBrowserOptions.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/Result.hpp>
+#include <exception>
+#include <functional>
 #include <memory>
 #include <optional>
 #include <string>
@@ -33,6 +37,71 @@ namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpecCxx; }
  */
 namespace margelo::nitro::inappbrowser::bridge::swift {
 
+  // pragma MARK: std::shared_ptr<Promise<void>>
+  /**
+   * Specialized version of `std::shared_ptr<Promise<void>>`.
+   */
+  using std__shared_ptr_Promise_void__ = std::shared_ptr<Promise<void>>;
+  inline std::shared_ptr<Promise<void>> create_std__shared_ptr_Promise_void__() {
+    return Promise<void>::create();
+  }
+  
+  // pragma MARK: std::function<void()>
+  /**
+   * Specialized version of `std::function<void()>`.
+   */
+  using Func_void = std::function<void()>;
+  /**
+   * Wrapper class for a `std::function<void()>`, this can be used from Swift.
+   */
+  class Func_void_Wrapper final {
+  public:
+    explicit Func_void_Wrapper(const std::function<void()>& func): _function(func) {}
+    explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::move(func)) {}
+    inline void call() const {
+      _function();
+    }
+  private:
+    std::function<void()> _function;
+  };
+  inline Func_void create_Func_void(void* _Nonnull closureHolder, void(* _Nonnull call)(void* _Nonnull /* closureHolder */), void(* _Nonnull destroy)(void* _Nonnull)) {
+    std::shared_ptr<void> sharedClosureHolder(closureHolder, destroy);
+    return Func_void([sharedClosureHolder, call]() -> void {
+      call(sharedClosureHolder.get());
+    });
+  }
+  inline std::shared_ptr<Func_void_Wrapper> share_Func_void(const Func_void& value) {
+    return std::make_shared<Func_void_Wrapper>(value);
+  }
+  
+  // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
+  /**
+   * Specialized version of `std::function<void(const std::exception_ptr&)>`.
+   */
+  using Func_void_std__exception_ptr = std::function<void(const std::exception_ptr& /* error */)>;
+  /**
+   * Wrapper class for a `std::function<void(const std::exception_ptr& / * error * /)>`, this can be used from Swift.
+   */
+  class Func_void_std__exception_ptr_Wrapper final {
+  public:
+    explicit Func_void_std__exception_ptr_Wrapper(const std::function<void(const std::exception_ptr& /* error */)>& func): _function(func) {}
+    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::move(func)) {}
+    inline void call(std::exception_ptr error) const {
+      _function(error);
+    }
+  private:
+    std::function<void(const std::exception_ptr& /* error */)> _function;
+  };
+  inline Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull closureHolder, void(* _Nonnull call)(void* _Nonnull /* closureHolder */, std::exception_ptr), void(* _Nonnull destroy)(void* _Nonnull)) {
+    std::shared_ptr<void> sharedClosureHolder(closureHolder, destroy);
+    return Func_void_std__exception_ptr([sharedClosureHolder, call](const std::exception_ptr& error) -> void {
+      call(sharedClosureHolder.get(), error);
+    });
+  }
+  inline std::shared_ptr<Func_void_std__exception_ptr_Wrapper> share_Func_void_std__exception_ptr(const Func_void_std__exception_ptr& value) {
+    return std::make_shared<Func_void_std__exception_ptr_Wrapper>(value);
+  }
+  
   // pragma MARK: std::optional<NitroInAppBrowserDismissButtonLabel>
   /**
    * Specialized version of `std::optional<NitroInAppBrowserDismissButtonLabel>`.
@@ -67,5 +136,27 @@ namespace margelo::nitro::inappbrowser::bridge::swift {
   using std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ = std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>;
   std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec> create_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer);
   void* _Nonnull get_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ cppType);
+  
+  // pragma MARK: std::weak_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>
+  using std__weak_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ = std::weak_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>;
+  inline std__weak_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_ weakify_std__shared_ptr_margelo__nitro__inappbrowser__HybridNitroInAppBrowserSpec_(const std::shared_ptr<margelo::nitro::inappbrowser::HybridNitroInAppBrowserSpec>& strong) { return strong; }
+  
+  // pragma MARK: Result<std::shared_ptr<Promise<void>>>
+  using Result_std__shared_ptr_Promise_void___ = Result<std::shared_ptr<Promise<void>>>;
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::shared_ptr<Promise<void>>& value) {
+    return Result<std::shared_ptr<Promise<void>>>::withValue(value);
+  }
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) {
+    return Result<std::shared_ptr<Promise<void>>>::withError(error);
+  }
+  
+  // pragma MARK: Result<void>
+  using Result_void_ = Result<void>;
+  inline Result_void_ create_Result_void_() {
+    return Result<void>::withValue();
+  }
+  inline Result_void_ create_Result_void_(const std::exception_ptr& error) {
+    return Result<void>::withError(error);
+  }
 
 } // namespace margelo::nitro::inappbrowser::bridge::swift
