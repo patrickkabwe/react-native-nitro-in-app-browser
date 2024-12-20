@@ -33,12 +33,12 @@ updates:
       - "nitrogen"
 
     groups:
-      rncli:
+      react-native-cli:
         patterns:
           - "@react-native-community/cli*"
       babel:
         patterns:
           - "@babel/*"
-      rn:
+      react-native:
         patterns:
           - "@react-native/*"

@@ -57,7 +57,6 @@ class SafariBrowserPresenter: NSObject, BrowserPresenting, SFSafariViewControlle
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         cleanupBrowser()
-        controller.delegate = nil
     }
     
     private func cleanupBrowser() {
