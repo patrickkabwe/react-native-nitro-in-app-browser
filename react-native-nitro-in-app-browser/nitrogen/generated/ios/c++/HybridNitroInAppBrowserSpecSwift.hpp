@@ -9,49 +9,44 @@
 
 #include "HybridNitroInAppBrowserSpec.hpp"
 
-// Forward declaration of `HybridNitroInAppBrowserSpecCxx` to properly resolve imports.
-namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpecCxx; }
+// Forward declaration of `HybridNitroInAppBrowserSpec_cxx` to properly resolve imports.
+namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpec_cxx; }
 
 // Forward declaration of `NitroInAppBrowserOptions` to properly resolve imports.
 namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 // Forward declaration of `NitroInAppBrowserDismissButtonLabel` to properly resolve imports.
 namespace margelo::nitro::inappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
 
+#include <NitroModules/Promise.hpp>
 #include <string>
 #include <optional>
 #include "NitroInAppBrowserOptions.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
-
-#if __has_include(<NitroModules/HybridContext.hpp>)
-#include <NitroModules/HybridContext.hpp>
-#else
-#error NitroModules cannot be found! Are you sure you installed NitroModules properly?
-#endif
 
 #include "NitroInAppBrowser-Swift-Cxx-Umbrella.hpp"
 
 namespace margelo::nitro::inappbrowser {
 
   /**
-   * The C++ part of HybridNitroInAppBrowserSpecCxx.swift.
+   * The C++ part of HybridNitroInAppBrowserSpec_cxx.swift.
    *
-   * HybridNitroInAppBrowserSpecSwift (C++) accesses HybridNitroInAppBrowserSpecCxx (Swift), and might
+   * HybridNitroInAppBrowserSpecSwift (C++) accesses HybridNitroInAppBrowserSpec_cxx (Swift), and might
    * contain some additional bridging code for C++ <> Swift interop.
    *
    * Since this obviously introduces an overhead, I hope at some point in
-   * the future, HybridNitroInAppBrowserSpecCxx can directly inherit from the C++ class HybridNitroInAppBrowserSpec
+   * the future, HybridNitroInAppBrowserSpec_cxx can directly inherit from the C++ class HybridNitroInAppBrowserSpec
    * to simplify the whole structure and memory management.
    */
   class HybridNitroInAppBrowserSpecSwift: public virtual HybridNitroInAppBrowserSpec {
   public:
     // Constructor from a Swift instance
-    explicit HybridNitroInAppBrowserSpecSwift(const NitroInAppBrowser::HybridNitroInAppBrowserSpecCxx& swiftPart):
+    explicit HybridNitroInAppBrowserSpecSwift(const NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx& swiftPart):
       HybridObject(HybridNitroInAppBrowserSpec::TAG),
       _swiftPart(swiftPart) { }
 
   public:
     // Get the Swift part
-    inline NitroInAppBrowser::HybridNitroInAppBrowserSpecCxx getSwiftPart() noexcept { return _swiftPart; }
+    inline NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx getSwiftPart() noexcept { return _swiftPart; }
 
   public:
     // Get memory pressure
@@ -65,15 +60,23 @@ namespace margelo::nitro::inappbrowser {
 
   public:
     // Methods
-    inline void open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) override {
-      _swiftPart.open(url, options);
+    inline std::shared_ptr<Promise<void>> open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) override {
+      auto __result = _swiftPart.open(url, options);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
     }
     inline void close() override {
-      _swiftPart.close();
+      auto __result = _swiftPart.close();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
     }
 
   private:
-    NitroInAppBrowser::HybridNitroInAppBrowserSpecCxx _swiftPart;
+    NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx _swiftPart;
   };
 
 } // namespace margelo::nitro::inappbrowser

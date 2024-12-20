@@ -16,6 +16,7 @@
 // Forward declaration of `NitroInAppBrowserOptions` to properly resolve imports.
 namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 
+#include <NitroModules/Promise.hpp>
 #include <string>
 #include <optional>
 #include "NitroInAppBrowserOptions.hpp"
@@ -51,7 +52,7 @@ namespace margelo::nitro::inappbrowser {
 
     public:
       // Methods
-      virtual void open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) = 0;
+      virtual std::shared_ptr<Promise<void>> open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) = 0;
       virtual void close() = 0;
 
     protected:

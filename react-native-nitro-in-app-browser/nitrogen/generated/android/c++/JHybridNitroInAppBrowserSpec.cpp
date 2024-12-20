@@ -12,6 +12,8 @@ namespace margelo::nitro::inappbrowser { struct NitroInAppBrowserOptions; }
 // Forward declaration of `NitroInAppBrowserDismissButtonLabel` to properly resolve imports.
 namespace margelo::nitro::inappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
 
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/JPromise.hpp>
 #include <string>
 #include <optional>
 #include "NitroInAppBrowserOptions.hpp"
@@ -40,9 +42,20 @@ namespace margelo::nitro::inappbrowser {
   
 
   // Methods
-  void JHybridNitroInAppBrowserSpec::open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) {
-    static const auto method = _javaPart->getClass()->getMethod<void(jni::alias_ref<jni::JString> /* url */, jni::alias_ref<JNitroInAppBrowserOptions> /* options */)>("open");
-    method(_javaPart, jni::make_jstring(url), options.has_value() ? JNitroInAppBrowserOptions::fromCpp(options.value()) : nullptr);
+  std::shared_ptr<Promise<void>> JHybridNitroInAppBrowserSpec::open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) {
+    static const auto method = _javaPart->getClass()->getMethod<jni::local_ref<JPromise::javaobject>(jni::alias_ref<jni::JString> /* url */, jni::alias_ref<JNitroInAppBrowserOptions> /* options */)>("open");
+    auto __result = method(_javaPart, jni::make_jstring(url), options.has_value() ? JNitroInAppBrowserOptions::fromCpp(options.value()) : nullptr);
+    return [&]() {
+      auto __promise = Promise<void>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
+        __promise->resolve();
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
   }
   void JHybridNitroInAppBrowserSpec::close() {
     static const auto method = _javaPart->getClass()->getMethod<void()>("close");
