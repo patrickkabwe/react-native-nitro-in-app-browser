@@ -36,7 +36,16 @@ const App = () => {
       <Button
         title="Open Nowie Tech"
         onPress={() => {
-          NitroInAppBrowser.open('https://nowietech.com');
+         try {
+            await NitroInAppBrowser.open('https://nowietech.com', {
+              barColor: 'purple',
+              controlColor: '#000000',
+              dismissButtonLabel: 'close',
+              presentationStyle: NitroInAppBrowserPresentationStyle.FullScreen,
+            });
+          } catch (error) {
+            console.error(error);
+          }
         }}
       />
     </SafeAreaView>
