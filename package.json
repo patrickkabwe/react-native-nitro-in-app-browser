@@ -1,7 +1,7 @@
 {
     "name": "react-native-nitro-in-app-browser",
     "private": true,
-    "version": "0.7.0",
+    "version": "0.7.1",
     "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
     "author": "Patrick Kabwe <me@patrickkabwe.com> (https://github.com/patrickkabwe)",
     "scripts": {
@@ -22,7 +22,7 @@
     },
     "release-it": {
         "npm": {
-            "publish": false
+            "publish": true
         },
         "git": {
             "commitMessage": "chore: release ${version}",
