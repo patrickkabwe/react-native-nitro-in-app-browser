@@ -29,7 +29,7 @@
             "requireCleanWorkingDir": false
         },
         "github": {
-            "release": false
+            "release": true
         },
         "plugins": {
             "@release-it/bumper": {
