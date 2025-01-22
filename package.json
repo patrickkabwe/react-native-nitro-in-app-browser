@@ -1,13 +1,12 @@
 {
     "name": "react-native-nitro-in-app-browser",
-    "private": true,
-    "version": "0.7.1",
+    "version": "1.0.0",
     "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
     "author": "Patrick Kabwe <me@patrickkabwe.com> (https://github.com/patrickkabwe)",
     "scripts": {
         "bootstrap": "bun --filter=\"**\" install && bun tsc && bun --filter=\"in-browser-app-example\" pods",
         "typescript": "bun --filter=\"**\" typescript",
-        "release": "release-it --only-version",
+        "release": "release-it",
         "clean": "rm -rf react-native-nitro-in-app-browser/tsconfig.tsbuildinfo react-native-nitro-in-app-browser/node_modules react-native-nitro-in-app-browser/lib"
     },
     "workspaces": [
@@ -22,7 +21,7 @@
     },
     "release-it": {
         "npm": {
-            "publish": true
+            "publish": false
         },
         "git": {
             "commitMessage": "chore: release ${version}",
@@ -30,7 +29,7 @@
             "requireCleanWorkingDir": false
         },
         "github": {
-            "release": true
+            "release": false
         },
         "plugins": {
             "@release-it/bumper": {
@@ -46,6 +45,8 @@
                 ]
             },
             "@release-it/conventional-changelog": {
+                "infile": "CHANGELOG.md",
+                "ignoreRecommendedBump": true,
                 "preset": {
                     "name": "conventionalcommits",
                     "types": [
