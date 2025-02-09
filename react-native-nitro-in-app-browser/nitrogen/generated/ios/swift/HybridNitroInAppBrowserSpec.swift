@@ -9,7 +9,7 @@ import Foundation
 import NitroModules
 
 /// See ``HybridNitroInAppBrowserSpec``
-public protocol HybridNitroInAppBrowserSpec_protocol: AnyObject {
+public protocol HybridNitroInAppBrowserSpec_protocol: HybridObject {
   // Properties
   
 
@@ -19,7 +19,7 @@ public protocol HybridNitroInAppBrowserSpec_protocol: AnyObject {
 }
 
 /// See ``HybridNitroInAppBrowserSpec``
-public class HybridNitroInAppBrowserSpec_base: HybridObjectSpec {
+public class HybridNitroInAppBrowserSpec_base {
   private weak var cxxWrapper: HybridNitroInAppBrowserSpec_cxx? = nil
   public func getCxxWrapper() -> HybridNitroInAppBrowserSpec_cxx {
   #if DEBUG
@@ -35,7 +35,6 @@ public class HybridNitroInAppBrowserSpec_base: HybridObjectSpec {
       return cxxWrapper
     }
   }
-  public var memorySize: Int { return 0 }
 }
 
 /**

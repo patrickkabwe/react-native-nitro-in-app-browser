@@ -8,7 +8,7 @@ PODS:
   - hermes-engine (0.77.0):
     - hermes-engine/Pre-built (= 0.77.0)
   - hermes-engine/Pre-built (0.77.0)
-  - NitroInAppBrowser (0.5.0):
+  - NitroInAppBrowser (1.0.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -30,7 +30,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - NitroModules (0.21.0):
+  - NitroModules (0.22.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1770,8 +1770,8 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: eb93e2f488219332457c3c4eafd2738ddc7e80b8
   hermes-engine: 1f783c3d53940aed0d2c84586f0b7a85ab7827ef
-  NitroInAppBrowser: e97e6f2ee6a8958788c8c28dfd8df64daef3ecd6
-  NitroModules: 9d68a38c3ce81061ec20a22045f01aa26b05b716
+  NitroInAppBrowser: fd49052e60db515feb5290e2e832bbd4e7edc6f2
+  NitroModules: 0b5ab12fb3d174f2dbf9101e167342cd1406cf7b
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
   RCTDeprecation: f5c19ebdb8804b53ed029123eb69914356192fc8
   RCTRequired: 6ae6cebe470486e0e0ce89c1c0eabb998e7c51f4

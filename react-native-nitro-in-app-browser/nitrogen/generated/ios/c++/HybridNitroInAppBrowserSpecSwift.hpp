@@ -46,7 +46,9 @@ namespace margelo::nitro::inappbrowser {
 
   public:
     // Get the Swift part
-    inline NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx getSwiftPart() noexcept { return _swiftPart; }
+    inline NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx& getSwiftPart() noexcept {
+      return _swiftPart;
+    }
 
   public:
     // Get memory pressure

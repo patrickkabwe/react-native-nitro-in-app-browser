@@ -13,7 +13,7 @@
   "dependencies": {
     "react": "18.3.1",
     "react-native": "0.77.0",
-    "react-native-nitro-modules": "^0.21.0"
+    "react-native-nitro-modules": "^0.22.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
