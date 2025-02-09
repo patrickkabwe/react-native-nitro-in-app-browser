@@ -41,7 +41,7 @@ namespace margelo::nitro::inappbrowser::bridge::swift {
       throw std::runtime_error("Class \"HybridNitroInAppBrowserSpec\" is not implemented in Swift!");
     }
   #endif
-    NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx swiftPart = swiftWrapper->getSwiftPart();
+    NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
     return swiftPart.toUnsafe();
   }
 

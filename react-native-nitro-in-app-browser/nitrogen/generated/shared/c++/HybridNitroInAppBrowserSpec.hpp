@@ -44,7 +44,7 @@ namespace margelo::nitro::inappbrowser {
       explicit HybridNitroInAppBrowserSpec(): HybridObject(TAG) { }
 
       // Destructor
-      virtual ~HybridNitroInAppBrowserSpec() { }
+      ~HybridNitroInAppBrowserSpec() override = default;
 
     public:
       // Properties

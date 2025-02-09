@@ -49,7 +49,7 @@ namespace margelo::nitro {
 
   // C++ NitroInAppBrowserOptions <> JS NitroInAppBrowserOptions (object)
   template <>
-  struct JSIConverter<NitroInAppBrowserOptions> {
+  struct JSIConverter<NitroInAppBrowserOptions> final {
     static inline NitroInAppBrowserOptions fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       jsi::Object obj = arg.asObject(runtime);
       return NitroInAppBrowserOptions(

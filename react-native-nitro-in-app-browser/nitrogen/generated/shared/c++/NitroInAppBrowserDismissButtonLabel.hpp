@@ -42,7 +42,7 @@ namespace margelo::nitro {
 
   // C++ NitroInAppBrowserDismissButtonLabel <> JS NitroInAppBrowserDismissButtonLabel (union)
   template <>
-  struct JSIConverter<NitroInAppBrowserDismissButtonLabel> {
+  struct JSIConverter<NitroInAppBrowserDismissButtonLabel> final {
     static inline NitroInAppBrowserDismissButtonLabel fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       std::string unionValue = JSIConverter<std::string>::fromJSI(runtime, arg);
       switch (hashString(unionValue.c_str(), unionValue.size())) {
