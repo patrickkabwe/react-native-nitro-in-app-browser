@@ -37,6 +37,10 @@ on:
 env:
   USE_CCACHE: 1
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+    
 jobs:
   build_new:
     name: Build iOS Example App (new architecture)
