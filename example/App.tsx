@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, SafeAreaView } from 'react-native';
-import {
-  NitroInAppBrowser,
+import {Button, SafeAreaView} from 'react-native';
+import NitroInAppBrowser, {
   NitroInAppBrowserPresentationStyle,
 } from 'react-native-nitro-in-app-browser';
 

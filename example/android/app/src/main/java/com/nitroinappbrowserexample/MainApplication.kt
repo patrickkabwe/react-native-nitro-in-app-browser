@@ -1,4 +1,4 @@
-package com.exampleapp
+package com.nitroinappbrowserexample
 
 import android.app.Application
 import com.facebook.react.PackageList
