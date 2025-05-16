@@ -7,11 +7,11 @@ on:
     paths:
       - '.github/workflows/android-build.yml'
       - 'example/android/**'
-      - '**/nitrogen/generated/shared/**'
-      - '**/nitrogen/generated/android/**'
-      - 'react-native-nitro-in-app-browser/cpp/**'
-      - 'react-native-nitro-in-app-browser/android/**'
-      - '**/bun.lockb'
+      - 'nitrogen/generated/shared/**'
+      - 'nitrogen/generated/android/**'
+      - 'cpp/**'
+      - 'android/**'
+      - '**/bun.lock'
       - '**/react-native.config.js'
       - '**/nitro.json'
   pull_request:
@@ -20,11 +20,15 @@ on:
       - 'example/android/**'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/android/**'
-      - 'react-native-nitro-in-app-browser/cpp/**'
-      - 'react-native-nitro-in-app-browser/android/**'
-      - '**/bun.lockb'
+      - 'cpp/**'
+      - 'android/**'
+      - '**/bun.lock'
       - '**/react-native.config.js'
       - '**/nitro.json'
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
   build_new:
@@ -43,20 +47,12 @@ jobs:
           distribution: 'zulu'
           java-version: 17
           java-package: jdk
+          cache: gradle
 
-      - name: Restore Gradle cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
       - name: Run Gradle Build for example/android/
         working-directory: example/android
         run: ./gradlew assembleDebug --no-daemon --build-cache
 
-      # Gradle cache doesn't like daemons
       - name: Stop Gradle Daemon
         working-directory: example/android
         run: ./gradlew --stop
@@ -80,20 +76,12 @@ jobs:
           distribution: 'zulu'
           java-version: 17
           java-package: jdk
+          cache: gradle
 
-      - name: Restore Gradle cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
       - name: Run Gradle Build for example/android/
         working-directory: example/android
         run: ./gradlew assembleDebug --no-daemon --build-cache
 
-      # Gradle cache doesn't like daemons
       - name: Stop Gradle Daemon
         working-directory: example/android
         run: ./gradlew --stop

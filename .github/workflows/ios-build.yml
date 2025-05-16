@@ -7,11 +7,14 @@ on:
     paths:
       - '.github/workflows/ios-build.yml'
       - 'example/ios/**'
+      - 'example/Gemfile'
+      - 'example/Gemfile.lock'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/ios/**'
-      - 'react-native-nitro-in-app-browser/cpp/**'
-      - 'react-native-nitro-in-app-browser/ios/**'
+      - 'cpp/**'
+      - 'ios/**'
       - '**/Podfile.lock'
+      - '**/bun.lock'
       - '**/*.podspec'
       - '**/react-native.config.js'
       - '**/nitro.json'
@@ -19,11 +22,14 @@ on:
     paths:
       - '.github/workflows/ios-build.yml'
       - 'example/ios/**'
+      - 'example/Gemfile'
+      - 'example/Gemfile.lock'
       - '**/nitrogen/generated/shared/**'
       - '**/nitrogen/generated/ios/**'
-      - 'react-native-nitro-in-app-browser/cpp/**'
-      - 'react-native-nitro-in-app-browser/ios/**'
+      - 'cpp/**'
+      - 'ios/**'
       - '**/Podfile.lock'
+      - '**/bun.lock'
       - '**/*.podspec'
       - '**/react-native.config.js'
       - '**/nitro.json'
@@ -31,6 +37,10 @@ on:
 env:
   USE_CCACHE: 1
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+    
 jobs:
   build_new:
     name: Build iOS Example App (new architecture)
@@ -41,9 +51,6 @@ jobs:
 
       - name: Install npm dependencies (bun)
         run: bun install
-
-      - name: Restore ccache
-        uses: hendrikmuhs/ccache-action@v1.2
 
       - name: Setup Ruby (bundle)
         uses: ruby/setup-ruby@v1
@@ -70,8 +77,8 @@ jobs:
         run: "set -o pipefail && xcodebuild \
           CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ \
           -derivedDataPath build -UseModernBuildSystem=YES \
-          -workspace ExampleApp.xcworkspace \
-          -scheme ExampleApp \
+          -workspace NitroInAppBrowserExample.xcworkspace \
+          -scheme NitroInAppBrowserExample \
           -sdk iphonesimulator \
           -configuration Debug \
           -destination 'platform=iOS Simulator,name=iPhone 16' \
@@ -120,8 +127,8 @@ jobs:
         run: "set -o pipefail && xcodebuild \
           CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ \
           -derivedDataPath build -UseModernBuildSystem=YES \
-          -workspace ExampleApp.xcworkspace \
-          -scheme ExampleApp \
+          -workspace NitroInAppBrowserExample.xcworkspace \
+          -scheme NitroInAppBrowserExample \
           -sdk iphonesimulator \
           -configuration Debug \
           -destination 'platform=iOS Simulator,name=iPhone 16' \

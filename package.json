@@ -1,82 +1,119 @@
 {
-    "name": "react-native-nitro-in-app-browser",
-    "version": "1.0.0",
-    "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
-    "author": "Patrick Kabwe <me@patrickkabwe.com> (https://github.com/patrickkabwe)",
-    "scripts": {
-        "bootstrap": "bun --filter=\"**\" install && bun tsc && bun --filter=\"in-browser-app-example\" pods",
-        "typescript": "bun --filter=\"**\" typescript",
-        "release": "release-it",
-        "clean": "rm -rf react-native-nitro-in-app-browser/tsconfig.tsbuildinfo react-native-nitro-in-app-browser/node_modules react-native-nitro-in-app-browser/lib"
-    },
-    "workspaces": [
-        "react-native-nitro-in-app-browser",
-        "example"
+  "name": "react-native-nitro-in-app-browser",
+  "version": "1.0.0",
+  "description": "Nitro module package",
+  "main": "./lib/commonjs/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/typescript/src/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "clean": "git clean -dfX",
+    "release": "semantic-release",
+    "build": "bun run typecheck && bob build",
+    "codegen": "nitro-codegen --logLevel=\"debug\" && bun run build && node post-script.js",
+    "postcodegen": "bun --cwd example pod"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "files": [
+    "src",
+    "react-native.config.js",
+    "lib",
+    "nitrogen",
+    "cpp",
+    "android/build.gradle",
+    "android/gradle.properties",
+    "android/CMakeLists.txt",
+    "android/src",
+    "ios/**/*.h",
+    "ios/**/*.m",
+    "ios/**/*.mm",
+    "ios/**/*.cpp",
+    "ios/**/*.swift",
+    "app.plugin.js",
+    "*.podspec",
+    "README.md"
+  ],
+  "workspaces": [
+    "example"
+  ],
+  "repository": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser.git",
+  "author": "Patrick Kabwe",
+  "license": "MIT",
+  "bugs": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser/issues",
+  "homepage": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
+  "devDependencies": {
+    "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "semantic-release": "^24.2.3",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^19.0.10",
+    "nitro-codegen": "0.25.2",
+    "react": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-builder-bob": "^0.37.0",
+    "react-native-nitro-modules": "0.25.2",
+    "typescript": "5.0.4"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-nitro-modules": "*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@react-native",
+      "prettier"
     ],
-    "devDependencies": {
-        "@release-it/conventional-changelog": "^8.0.1",
-        "@release-it/bumper": "^6.0.1",
-        "@jamesacarr/eslint-formatter-github-actions": "^0.2.0",
-        "release-it": "^17.6.0"
-    },
-    "release-it": {
-        "npm": {
-            "publish": false
-        },
-        "git": {
-            "commitMessage": "chore: release ${version}",
-            "tagName": "v${version}",
-            "requireCleanWorkingDir": false
-        },
-        "github": {
-            "release": true
-        },
-        "plugins": {
-            "@release-it/bumper": {
-                "out": [
-                    {
-                        "file": "react-native-nitro-in-app-browser/package.json",
-                        "path": "version"
-                    },
-                    {
-                        "file": "example/package.json",
-                        "path": "version"
-                    }
-                ]
-            },
-            "@release-it/conventional-changelog": {
-                "infile": "CHANGELOG.md",
-                "ignoreRecommendedBump": true,
-                "preset": {
-                    "name": "conventionalcommits",
-                    "types": [
-                        {
-                            "type": "feat",
-                            "section": "✨ Features"
-                        },
-                        {
-                            "type": "perf",
-                            "section": "💨 Performance Improvements"
-                        },
-                        {
-                            "type": "fix",
-                            "section": "🐛 Bug Fixes"
-                        },
-                        {
-                            "type": "chore(deps)",
-                            "section": "🛠️ Dependency Upgrades"
-                        },
-                        {
-                            "type": "docs",
-                            "section": "📚 Documentation"
-                        }
-                    ]
-                }
-            }
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "warn",
+        {
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "useTabs": false
         }
-    },
-    "resolutions": {
-        "react": "18.3.1",
-        "react-native": "0.77.0"
+      ]
     }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "semi": false
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.json"
+        }
+      ]
+    ]
+  }
 }
