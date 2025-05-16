@@ -61,7 +61,7 @@ MIT
 
 ---
 
-Created with [Create Nitro Modules](https://github.com/patrickkabwe/create-nitro-module)
+Bootstrapped with [Create Nitro Modules](https://github.com/patrickkabwe/create-nitro-module)
 
 
 ## Credits
