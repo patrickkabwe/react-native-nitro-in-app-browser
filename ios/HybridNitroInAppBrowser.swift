@@ -16,7 +16,7 @@ class HybridNitroInAppBrowser: HybridNitroInAppBrowserSpec {
             throw RuntimeError.error(withMessage: "Invalid URL")
         }
         
-        return Promise.async {
+        return .async {
             return try await withCheckedThrowingContinuation { continuation in
                 DispatchQueue.main.async { [weak self] in
                     do {
@@ -30,9 +30,11 @@ class HybridNitroInAppBrowser: HybridNitroInAppBrowserSpec {
         }
     }
     
-    func close() {
-        DispatchQueue.main.async { [weak self] in
-            self?.browserPresenter.dismiss()
+    func close() throws -> Promise<Void> {
+        return .async {
+            DispatchQueue.main.async { [weak self] in
+                self?.browserPresenter.dismiss()
+            }
         }
     }
 }

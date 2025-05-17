@@ -52,7 +52,7 @@ namespace margelo::nitro::nitroinappbrowser {
   public:
     // Methods
     std::shared_ptr<Promise<void>> open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) override;
-    void close() override;
+    std::shared_ptr<Promise<void>> close() override;
 
   private:
     friend HybridBase;

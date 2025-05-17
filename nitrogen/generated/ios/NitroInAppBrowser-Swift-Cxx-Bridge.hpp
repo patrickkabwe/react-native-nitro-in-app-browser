@@ -141,14 +141,5 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
   inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) {
     return Result<std::shared_ptr<Promise<void>>>::withError(error);
   }
-  
-  // pragma MARK: Result<void>
-  using Result_void_ = Result<void>;
-  inline Result_void_ create_Result_void_() {
-    return Result<void>::withValue();
-  }
-  inline Result_void_ create_Result_void_(const std::exception_ptr& error) {
-    return Result<void>::withError(error);
-  }
 
 } // namespace margelo::nitro::nitroinappbrowser::bridge::swift

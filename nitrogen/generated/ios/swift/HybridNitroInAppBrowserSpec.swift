@@ -15,7 +15,7 @@ public protocol HybridNitroInAppBrowserSpec_protocol: HybridObject {
 
   // Methods
   func open(url: String, options: NitroInAppBrowserOptions?) throws -> Promise<Void>
-  func close() throws -> Void
+  func close() throws -> Promise<Void>
 }
 
 /// See ``HybridNitroInAppBrowserSpec``
