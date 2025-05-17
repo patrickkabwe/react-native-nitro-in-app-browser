@@ -53,7 +53,7 @@ namespace margelo::nitro::nitroinappbrowser {
     public:
       // Methods
       virtual std::shared_ptr<Promise<void>> open(const std::string& url, const std::optional<NitroInAppBrowserOptions>& options) = 0;
-      virtual void close() = 0;
+      virtual std::shared_ptr<Promise<void>> close() = 0;
 
     protected:
       // Hybrid Setup
