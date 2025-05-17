@@ -46,7 +46,7 @@ abstract class HybridNitroInAppBrowserSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
-  abstract fun close(): Unit
+  abstract fun close(): Promise<Unit>
 
   private external fun initHybrid(): HybridData
 

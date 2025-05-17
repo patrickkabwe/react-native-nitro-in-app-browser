@@ -5,7 +5,6 @@ import com.margelo.nitro.core.Promise
 import com.margelo.nitro.nitroinappbrowser.HybridNitroInAppBrowserSpec
 import com.margelo.nitro.nitroinappbrowser.NitroInAppBrowserOptions
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 
 class HybridNitroInAppBrowser: HybridNitroInAppBrowserSpec() {
     private val inAppBrowser = NitroInAppBrowserImpl(NitroModules.applicationContext)
@@ -17,8 +16,8 @@ class HybridNitroInAppBrowser: HybridNitroInAppBrowserSpec() {
         }
     }
 
-    override fun close() {
-        scope.launch {
+    override fun close(): Promise<Unit> {
+        return Promise.async(scope) {
             inAppBrowser.close()
         }
     }
