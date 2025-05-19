@@ -5,6 +5,8 @@ on:
       branches:
         - main
         - next
+      paths-ignore:
+        - 'docs/**'
 
 permissions:
   contents: read
@@ -42,6 +44,10 @@ jobs:
         
       - name: Install npm dependencies (bun)
         run: bun install
+
+      - name: Build lib
+        run: bun run build
+        
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
