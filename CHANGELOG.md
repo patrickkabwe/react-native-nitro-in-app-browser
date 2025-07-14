@@ -1,3 +1,11 @@
+## [1.1.8](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.7...v1.1.8) (2025-07-14)
+
+### 🛠️ Other changes
+
+* **deps-dev:** bump semantic-release from 24.2.3 to 24.2.6 ([26497d0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/26497d0fb632b856a46b820d591bc585e8ea31f6))
+* **deps:** bump com.android.tools.build:gradle in /android ([3aea5a5](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/3aea5a5375b214d2c6719391bc9ecd63e9aa8875))
+* update nitro-codegen and react-native-nitro-modules to version 0.26.3; bump NitroInAppBrowser to 1.1.7 ([534c3fd](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/534c3fd92cde36f3bb804a1d18908c0ab0e24414))
+
 ## [1.1.7](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.6...v1.1.7) (2025-07-14)
 
 ### 🛠️ Other changes
