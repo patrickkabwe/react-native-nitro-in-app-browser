@@ -1,3 +1,9 @@
+## [1.1.9](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.8...v1.1.9) (2025-07-14)
+
+### 🛠️ Other changes
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([44b8c80](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/44b8c80165e8ca3d73e86f91c88cbca2d196455f))
+
 ## [1.1.8](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.7...v1.1.8) (2025-07-14)
 
 ### 🛠️ Other changes
