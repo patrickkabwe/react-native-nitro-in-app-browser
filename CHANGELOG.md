@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.9...v1.2.0) (2025-07-31)
+
+### ✨ Features
+
+* Enable 16KB page size support ([6347427](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/6347427d0146adfedc7da8f69e6f47a1e1b6d830))
+* Enable 16KB page size support ([64ce999](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/64ce9994665ed6b2d87a30ed1ffa0c6ebbfd5500))
+
 ## [1.1.9](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.8...v1.1.9) (2025-07-14)
 
 ### 🛠️ Other changes
