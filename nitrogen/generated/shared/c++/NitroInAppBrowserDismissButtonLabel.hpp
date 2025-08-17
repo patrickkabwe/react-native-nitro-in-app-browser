@@ -38,26 +38,24 @@ namespace margelo::nitro::nitroinappbrowser {
 
 namespace margelo::nitro {
 
-  using namespace margelo::nitro::nitroinappbrowser;
-
   // C++ NitroInAppBrowserDismissButtonLabel <> JS NitroInAppBrowserDismissButtonLabel (union)
   template <>
-  struct JSIConverter<NitroInAppBrowserDismissButtonLabel> final {
-    static inline NitroInAppBrowserDismissButtonLabel fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
+  struct JSIConverter<margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel> final {
+    static inline margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       std::string unionValue = JSIConverter<std::string>::fromJSI(runtime, arg);
       switch (hashString(unionValue.c_str(), unionValue.size())) {
-        case hashString("cancel"): return NitroInAppBrowserDismissButtonLabel::CANCEL;
-        case hashString("done"): return NitroInAppBrowserDismissButtonLabel::DONE;
-        case hashString("close"): return NitroInAppBrowserDismissButtonLabel::CLOSE;
+        case hashString("cancel"): return margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel::CANCEL;
+        case hashString("done"): return margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel::DONE;
+        case hashString("close"): return margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel::CLOSE;
         default: [[unlikely]]
           throw std::invalid_argument("Cannot convert \"" + unionValue + "\" to enum NitroInAppBrowserDismissButtonLabel - invalid value!");
       }
     }
-    static inline jsi::Value toJSI(jsi::Runtime& runtime, NitroInAppBrowserDismissButtonLabel arg) {
+    static inline jsi::Value toJSI(jsi::Runtime& runtime, margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel arg) {
       switch (arg) {
-        case NitroInAppBrowserDismissButtonLabel::CANCEL: return JSIConverter<std::string>::toJSI(runtime, "cancel");
-        case NitroInAppBrowserDismissButtonLabel::DONE: return JSIConverter<std::string>::toJSI(runtime, "done");
-        case NitroInAppBrowserDismissButtonLabel::CLOSE: return JSIConverter<std::string>::toJSI(runtime, "close");
+        case margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel::CANCEL: return JSIConverter<std::string>::toJSI(runtime, "cancel");
+        case margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel::DONE: return JSIConverter<std::string>::toJSI(runtime, "done");
+        case margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel::CLOSE: return JSIConverter<std::string>::toJSI(runtime, "close");
         default: [[unlikely]]
           throw std::invalid_argument("Cannot convert NitroInAppBrowserDismissButtonLabel to JS - invalid value: "
                                     + std::to_string(static_cast<int>(arg)) + "!");

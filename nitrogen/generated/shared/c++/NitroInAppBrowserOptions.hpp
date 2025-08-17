@@ -20,9 +20,12 @@
 
 // Forward declaration of `NitroInAppBrowserDismissButtonLabel` to properly resolve imports.
 namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
+// Forward declaration of `NitroInAppBrowserPresentationStyle` to properly resolve imports.
+namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserPresentationStyle; }
 
-#include <optional>
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
+#include <optional>
+#include "NitroInAppBrowserPresentationStyle.hpp"
 #include <string>
 
 namespace margelo::nitro::nitroinappbrowser {
@@ -33,37 +36,35 @@ namespace margelo::nitro::nitroinappbrowser {
   struct NitroInAppBrowserOptions {
   public:
     std::optional<NitroInAppBrowserDismissButtonLabel> dismissButtonLabel     SWIFT_PRIVATE;
-    std::optional<std::string> presentationStyle     SWIFT_PRIVATE;
+    std::optional<NitroInAppBrowserPresentationStyle> presentationStyle     SWIFT_PRIVATE;
     std::optional<std::string> barColor     SWIFT_PRIVATE;
     std::optional<std::string> controlColor     SWIFT_PRIVATE;
 
   public:
     NitroInAppBrowserOptions() = default;
-    explicit NitroInAppBrowserOptions(std::optional<NitroInAppBrowserDismissButtonLabel> dismissButtonLabel, std::optional<std::string> presentationStyle, std::optional<std::string> barColor, std::optional<std::string> controlColor): dismissButtonLabel(dismissButtonLabel), presentationStyle(presentationStyle), barColor(barColor), controlColor(controlColor) {}
+    explicit NitroInAppBrowserOptions(std::optional<NitroInAppBrowserDismissButtonLabel> dismissButtonLabel, std::optional<NitroInAppBrowserPresentationStyle> presentationStyle, std::optional<std::string> barColor, std::optional<std::string> controlColor): dismissButtonLabel(dismissButtonLabel), presentationStyle(presentationStyle), barColor(barColor), controlColor(controlColor) {}
   };
 
 } // namespace margelo::nitro::nitroinappbrowser
 
 namespace margelo::nitro {
 
-  using namespace margelo::nitro::nitroinappbrowser;
-
   // C++ NitroInAppBrowserOptions <> JS NitroInAppBrowserOptions (object)
   template <>
-  struct JSIConverter<NitroInAppBrowserOptions> final {
-    static inline NitroInAppBrowserOptions fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
+  struct JSIConverter<margelo::nitro::nitroinappbrowser::NitroInAppBrowserOptions> final {
+    static inline margelo::nitro::nitroinappbrowser::NitroInAppBrowserOptions fromJSI(jsi::Runtime& runtime, const jsi::Value& arg) {
       jsi::Object obj = arg.asObject(runtime);
-      return NitroInAppBrowserOptions(
-        JSIConverter<std::optional<NitroInAppBrowserDismissButtonLabel>>::fromJSI(runtime, obj.getProperty(runtime, "dismissButtonLabel")),
-        JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "presentationStyle")),
+      return margelo::nitro::nitroinappbrowser::NitroInAppBrowserOptions(
+        JSIConverter<std::optional<margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel>>::fromJSI(runtime, obj.getProperty(runtime, "dismissButtonLabel")),
+        JSIConverter<std::optional<margelo::nitro::nitroinappbrowser::NitroInAppBrowserPresentationStyle>>::fromJSI(runtime, obj.getProperty(runtime, "presentationStyle")),
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "barColor")),
         JSIConverter<std::optional<std::string>>::fromJSI(runtime, obj.getProperty(runtime, "controlColor"))
       );
     }
-    static inline jsi::Value toJSI(jsi::Runtime& runtime, const NitroInAppBrowserOptions& arg) {
+    static inline jsi::Value toJSI(jsi::Runtime& runtime, const margelo::nitro::nitroinappbrowser::NitroInAppBrowserOptions& arg) {
       jsi::Object obj(runtime);
-      obj.setProperty(runtime, "dismissButtonLabel", JSIConverter<std::optional<NitroInAppBrowserDismissButtonLabel>>::toJSI(runtime, arg.dismissButtonLabel));
-      obj.setProperty(runtime, "presentationStyle", JSIConverter<std::optional<std::string>>::toJSI(runtime, arg.presentationStyle));
+      obj.setProperty(runtime, "dismissButtonLabel", JSIConverter<std::optional<margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel>>::toJSI(runtime, arg.dismissButtonLabel));
+      obj.setProperty(runtime, "presentationStyle", JSIConverter<std::optional<margelo::nitro::nitroinappbrowser::NitroInAppBrowserPresentationStyle>>::toJSI(runtime, arg.presentationStyle));
       obj.setProperty(runtime, "barColor", JSIConverter<std::optional<std::string>>::toJSI(runtime, arg.barColor));
       obj.setProperty(runtime, "controlColor", JSIConverter<std::optional<std::string>>::toJSI(runtime, arg.controlColor));
       return obj;
@@ -73,8 +74,8 @@ namespace margelo::nitro {
         return false;
       }
       jsi::Object obj = value.getObject(runtime);
-      if (!JSIConverter<std::optional<NitroInAppBrowserDismissButtonLabel>>::canConvert(runtime, obj.getProperty(runtime, "dismissButtonLabel"))) return false;
-      if (!JSIConverter<std::optional<std::string>>::canConvert(runtime, obj.getProperty(runtime, "presentationStyle"))) return false;
+      if (!JSIConverter<std::optional<margelo::nitro::nitroinappbrowser::NitroInAppBrowserDismissButtonLabel>>::canConvert(runtime, obj.getProperty(runtime, "dismissButtonLabel"))) return false;
+      if (!JSIConverter<std::optional<margelo::nitro::nitroinappbrowser::NitroInAppBrowserPresentationStyle>>::canConvert(runtime, obj.getProperty(runtime, "presentationStyle"))) return false;
       if (!JSIConverter<std::optional<std::string>>::canConvert(runtime, obj.getProperty(runtime, "barColor"))) return false;
       if (!JSIConverter<std::optional<std::string>>::canConvert(runtime, obj.getProperty(runtime, "controlColor"))) return false;
       return true;

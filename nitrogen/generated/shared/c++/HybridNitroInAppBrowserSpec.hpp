@@ -18,8 +18,8 @@ namespace margelo::nitro::nitroinappbrowser { struct NitroInAppBrowserOptions; }
 
 #include <NitroModules/Promise.hpp>
 #include <string>
-#include <optional>
 #include "NitroInAppBrowserOptions.hpp"
+#include <optional>
 
 namespace margelo::nitro::nitroinappbrowser {
 

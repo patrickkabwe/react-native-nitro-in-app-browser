@@ -16,7 +16,6 @@
 #include <NitroModules/HybridObjectRegistry.hpp>
 
 #include "JHybridNitroInAppBrowserSpec.hpp"
-#include <NitroModules/JNISharedPtr.hpp>
 #include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::nitroinappbrowser {
@@ -37,7 +36,7 @@ int initialize(JavaVM* vm) {
         static DefaultConstructableObject<JHybridNitroInAppBrowserSpec::javaobject> object("com/nitroinappbrowser/HybridNitroInAppBrowser");
         auto instance = object.create();
         auto globalRef = jni::make_global(instance);
-        return JNISharedPtr::make_shared_from_jni<JHybridNitroInAppBrowserSpec>(globalRef);
+        return globalRef->cthis()->shared();
       }
     );
   });

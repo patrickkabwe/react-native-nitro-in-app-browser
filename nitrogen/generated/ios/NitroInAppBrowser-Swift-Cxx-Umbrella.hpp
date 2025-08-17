@@ -14,11 +14,14 @@ namespace margelo::nitro::nitroinappbrowser { class HybridNitroInAppBrowserSpec;
 namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
 // Forward declaration of `NitroInAppBrowserOptions` to properly resolve imports.
 namespace margelo::nitro::nitroinappbrowser { struct NitroInAppBrowserOptions; }
+// Forward declaration of `NitroInAppBrowserPresentationStyle` to properly resolve imports.
+namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserPresentationStyle; }
 
 // Include C++ defined types
 #include "HybridNitroInAppBrowserSpec.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
 #include "NitroInAppBrowserOptions.hpp"
+#include "NitroInAppBrowserPresentationStyle.hpp"
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>
@@ -31,7 +34,7 @@ namespace margelo::nitro::nitroinappbrowser { struct NitroInAppBrowserOptions; }
 
 // Common C++ types used in Swift
 #include <NitroModules/ArrayBufferHolder.hpp>
-#include <NitroModules/AnyMapHolder.hpp>
+#include <NitroModules/AnyMapUtils.hpp>
 #include <NitroModules/RuntimeError.hpp>
 #include <NitroModules/DateToChronoDate.hpp>
 

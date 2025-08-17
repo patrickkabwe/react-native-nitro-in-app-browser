@@ -11,6 +11,7 @@ import androidx.annotation.Keep
 import com.facebook.proguard.annotations.DoNotStrip
 import com.margelo.nitro.core.*
 
+
 /**
  * Represents the JavaScript object/struct "NitroInAppBrowserOptions".
  */
@@ -20,9 +21,17 @@ data class NitroInAppBrowserOptions
   @DoNotStrip
   @Keep
   constructor(
+    @DoNotStrip
+    @Keep
     val dismissButtonLabel: NitroInAppBrowserDismissButtonLabel?,
-    val presentationStyle: String?,
+    @DoNotStrip
+    @Keep
+    val presentationStyle: NitroInAppBrowserPresentationStyle?,
+    @DoNotStrip
+    @Keep
     val barColor: String?,
+    @DoNotStrip
+    @Keep
     val controlColor: String?
   ) {
   /* main constructor */

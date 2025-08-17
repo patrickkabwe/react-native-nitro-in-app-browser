@@ -18,16 +18,16 @@ public extension NitroInAppBrowserOptions {
   /**
    * Create a new instance of `NitroInAppBrowserOptions`.
    */
-  init(dismissButtonLabel: NitroInAppBrowserDismissButtonLabel?, presentationStyle: String?, barColor: String?, controlColor: String?) {
+  init(dismissButtonLabel: NitroInAppBrowserDismissButtonLabel?, presentationStyle: NitroInAppBrowserPresentationStyle?, barColor: String?, controlColor: String?) {
     self.init({ () -> bridge.std__optional_NitroInAppBrowserDismissButtonLabel_ in
       if let __unwrappedValue = dismissButtonLabel {
         return bridge.create_std__optional_NitroInAppBrowserDismissButtonLabel_(__unwrappedValue)
       } else {
         return .init()
       }
-    }(), { () -> bridge.std__optional_std__string_ in
+    }(), { () -> bridge.std__optional_NitroInAppBrowserPresentationStyle_ in
       if let __unwrappedValue = presentationStyle {
-        return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
+        return bridge.create_std__optional_NitroInAppBrowserPresentationStyle_(__unwrappedValue)
       } else {
         return .init()
       }
@@ -63,22 +63,16 @@ public extension NitroInAppBrowserOptions {
     }
   }
   
-  var presentationStyle: String? {
+  var presentationStyle: NitroInAppBrowserPresentationStyle? {
     @inline(__always)
     get {
-      return { () -> String? in
-        if let __unwrapped = self.__presentationStyle.value {
-          return String(__unwrapped)
-        } else {
-          return nil
-        }
-      }()
+      return self.__presentationStyle.value
     }
     @inline(__always)
     set {
-      self.__presentationStyle = { () -> bridge.std__optional_std__string_ in
+      self.__presentationStyle = { () -> bridge.std__optional_NitroInAppBrowserPresentationStyle_ in
         if let __unwrappedValue = newValue {
-          return bridge.create_std__optional_std__string_(std.string(__unwrappedValue))
+          return bridge.create_std__optional_NitroInAppBrowserPresentationStyle_(__unwrappedValue)
         } else {
           return .init()
         }

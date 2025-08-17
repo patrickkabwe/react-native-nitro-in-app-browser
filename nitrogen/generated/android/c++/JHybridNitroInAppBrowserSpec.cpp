@@ -11,15 +11,19 @@
 namespace margelo::nitro::nitroinappbrowser { struct NitroInAppBrowserOptions; }
 // Forward declaration of `NitroInAppBrowserDismissButtonLabel` to properly resolve imports.
 namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
+// Forward declaration of `NitroInAppBrowserPresentationStyle` to properly resolve imports.
+namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserPresentationStyle; }
 
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/JPromise.hpp>
 #include <string>
-#include <optional>
 #include "NitroInAppBrowserOptions.hpp"
+#include <optional>
 #include "JNitroInAppBrowserOptions.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
 #include "JNitroInAppBrowserDismissButtonLabel.hpp"
+#include "NitroInAppBrowserPresentationStyle.hpp"
+#include "JNitroInAppBrowserPresentationStyle.hpp"
 
 namespace margelo::nitro::nitroinappbrowser {
 
@@ -36,6 +40,11 @@ namespace margelo::nitro::nitroinappbrowser {
   size_t JHybridNitroInAppBrowserSpec::getExternalMemorySize() noexcept {
     static const auto method = javaClassStatic()->getMethod<jlong()>("getMemorySize");
     return method(_javaPart);
+  }
+
+  void JHybridNitroInAppBrowserSpec::dispose() noexcept {
+    static const auto method = javaClassStatic()->getMethod<void()>("dispose");
+    method(_javaPart);
   }
 
   // Properties
