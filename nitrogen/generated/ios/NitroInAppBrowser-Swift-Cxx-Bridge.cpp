@@ -29,18 +29,18 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
     };
   }
   
-  // pragma MARK: std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>
-  std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec> create_std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer) {
+  // pragma MARK: std::shared_ptr<HybridNitroInAppBrowserSpec>
+  std::shared_ptr<HybridNitroInAppBrowserSpec> create_std__shared_ptr_HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer) {
     NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx swiftPart = NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx::fromUnsafe(swiftUnsafePointer);
     return std::make_shared<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpecSwift>(swiftPart);
   }
-  void* _Nonnull get_std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_(std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_ cppType) {
+  void* _Nonnull get_std__shared_ptr_HybridNitroInAppBrowserSpec_(std__shared_ptr_HybridNitroInAppBrowserSpec_ cppType) {
     std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpecSwift>(cppType);
-  #ifdef NITRO_DEBUG
+    #ifdef NITRO_DEBUG
     if (swiftWrapper == nullptr) [[unlikely]] {
       throw std::runtime_error("Class \"HybridNitroInAppBrowserSpec\" is not implemented in Swift!");
     }
-  #endif
+    #endif
     NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
     return swiftPart.toUnsafe();
   }

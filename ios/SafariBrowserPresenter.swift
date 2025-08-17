@@ -79,7 +79,7 @@ extension SafariBrowserPresenter {
             .windows
             .first(where: { $0.isKeyWindow })?
             .rootViewController else {
-            throw NSError(domain: "nitro-in-app-browser", code: 0, userInfo: nil)
+            throw RuntimeError.error(withMessage: "Failed to get root view controller getRootViewController(...)")
         }
         return rootVC
     }

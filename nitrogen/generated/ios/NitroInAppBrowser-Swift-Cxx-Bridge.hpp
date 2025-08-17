@@ -14,6 +14,8 @@ namespace margelo::nitro::nitroinappbrowser { class HybridNitroInAppBrowserSpec;
 namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
 // Forward declaration of `NitroInAppBrowserOptions` to properly resolve imports.
 namespace margelo::nitro::nitroinappbrowser { struct NitroInAppBrowserOptions; }
+// Forward declaration of `NitroInAppBrowserPresentationStyle` to properly resolve imports.
+namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserPresentationStyle; }
 
 // Forward declarations of Swift defined types
 // Forward declaration of `HybridNitroInAppBrowserSpec_cxx` to properly resolve imports.
@@ -23,6 +25,7 @@ namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpec_cxx; }
 #include "HybridNitroInAppBrowserSpec.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
 #include "NitroInAppBrowserOptions.hpp"
+#include "NitroInAppBrowserPresentationStyle.hpp"
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/PromiseHolder.hpp>
 #include <NitroModules/Result.hpp>
@@ -60,13 +63,13 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    */
   class Func_void_Wrapper final {
   public:
-    explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_shared<std::function<void()>>(std::move(func))) {}
+    explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_unique<std::function<void()>>(std::move(func))) {}
     inline void call() const {
       _function->operator()();
     }
   private:
-    std::shared_ptr<std::function<void()>> _function;
-  };
+    std::unique_ptr<std::function<void()>> _function;
+  } SWIFT_NONCOPYABLE;
   Func_void create_Func_void(void* _Nonnull swiftClosureWrapper);
   inline Func_void_Wrapper wrap_Func_void(Func_void value) {
     return Func_void_Wrapper(std::move(value));
@@ -82,13 +85,13 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    */
   class Func_void_std__exception_ptr_Wrapper final {
   public:
-    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_shared<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
+    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_unique<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
     inline void call(std::exception_ptr error) const {
       _function->operator()(error);
     }
   private:
-    std::shared_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
-  };
+    std::unique_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
+  } SWIFT_NONCOPYABLE;
   Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper);
   inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) {
     return Func_void_std__exception_ptr_Wrapper(std::move(value));
@@ -101,6 +104,15 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
   using std__optional_NitroInAppBrowserDismissButtonLabel_ = std::optional<NitroInAppBrowserDismissButtonLabel>;
   inline std::optional<NitroInAppBrowserDismissButtonLabel> create_std__optional_NitroInAppBrowserDismissButtonLabel_(const NitroInAppBrowserDismissButtonLabel& value) {
     return std::optional<NitroInAppBrowserDismissButtonLabel>(value);
+  }
+  
+  // pragma MARK: std::optional<NitroInAppBrowserPresentationStyle>
+  /**
+   * Specialized version of `std::optional<NitroInAppBrowserPresentationStyle>`.
+   */
+  using std__optional_NitroInAppBrowserPresentationStyle_ = std::optional<NitroInAppBrowserPresentationStyle>;
+  inline std::optional<NitroInAppBrowserPresentationStyle> create_std__optional_NitroInAppBrowserPresentationStyle_(const NitroInAppBrowserPresentationStyle& value) {
+    return std::optional<NitroInAppBrowserPresentationStyle>(value);
   }
   
   // pragma MARK: std::optional<std::string>
@@ -121,17 +133,17 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
     return std::optional<NitroInAppBrowserOptions>(value);
   }
   
-  // pragma MARK: std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>
+  // pragma MARK: std::shared_ptr<HybridNitroInAppBrowserSpec>
   /**
-   * Specialized version of `std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>`.
+   * Specialized version of `std::shared_ptr<HybridNitroInAppBrowserSpec>`.
    */
-  using std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_ = std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>;
-  std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec> create_std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer);
-  void* _Nonnull get_std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_(std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_ cppType);
+  using std__shared_ptr_HybridNitroInAppBrowserSpec_ = std::shared_ptr<HybridNitroInAppBrowserSpec>;
+  std::shared_ptr<HybridNitroInAppBrowserSpec> create_std__shared_ptr_HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer);
+  void* _Nonnull get_std__shared_ptr_HybridNitroInAppBrowserSpec_(std__shared_ptr_HybridNitroInAppBrowserSpec_ cppType);
   
-  // pragma MARK: std::weak_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>
-  using std__weak_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_ = std::weak_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>;
-  inline std__weak_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_ weakify_std__shared_ptr_margelo__nitro__nitroinappbrowser__HybridNitroInAppBrowserSpec_(const std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpec>& strong) { return strong; }
+  // pragma MARK: std::weak_ptr<HybridNitroInAppBrowserSpec>
+  using std__weak_ptr_HybridNitroInAppBrowserSpec_ = std::weak_ptr<HybridNitroInAppBrowserSpec>;
+  inline std__weak_ptr_HybridNitroInAppBrowserSpec_ weakify_std__shared_ptr_HybridNitroInAppBrowserSpec_(const std::shared_ptr<HybridNitroInAppBrowserSpec>& strong) { return strong; }
   
   // pragma MARK: Result<std::shared_ptr<Promise<void>>>
   using Result_std__shared_ptr_Promise_void___ = Result<std::shared_ptr<Promise<void>>>;

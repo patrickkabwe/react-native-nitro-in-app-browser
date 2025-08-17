@@ -26,11 +26,11 @@ struct BrowserConfiguration {
         }
     }
     
-    private func configurePresentationStyle(for style: String?) -> UIModalPresentationStyle {
+    private func configurePresentationStyle(for style: NitroInAppBrowserPresentationStyle?) -> UIModalPresentationStyle {
         switch style {
-        case "formSheet": return .formSheet
-        case "pageSheet": return .pageSheet
-        case "fullScreen": return .fullScreen
+        case .formsheet: return .formSheet
+        case .pagesheet: return .pageSheet
+        case .fullscreen: return .fullScreen
         default: return .automatic
         }
     }

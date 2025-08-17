@@ -16,12 +16,15 @@ namespace NitroInAppBrowser { class HybridNitroInAppBrowserSpec_cxx; }
 namespace margelo::nitro::nitroinappbrowser { struct NitroInAppBrowserOptions; }
 // Forward declaration of `NitroInAppBrowserDismissButtonLabel` to properly resolve imports.
 namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserDismissButtonLabel; }
+// Forward declaration of `NitroInAppBrowserPresentationStyle` to properly resolve imports.
+namespace margelo::nitro::nitroinappbrowser { enum class NitroInAppBrowserPresentationStyle; }
 
 #include <NitroModules/Promise.hpp>
 #include <string>
-#include <optional>
 #include "NitroInAppBrowserOptions.hpp"
+#include <optional>
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
+#include "NitroInAppBrowserPresentationStyle.hpp"
 
 #include "NitroInAppBrowser-Swift-Cxx-Umbrella.hpp"
 
@@ -51,9 +54,11 @@ namespace margelo::nitro::nitroinappbrowser {
     }
 
   public:
-    // Get memory pressure
     inline size_t getExternalMemorySize() noexcept override {
       return _swiftPart.getMemorySize();
+    }
+    void dispose() noexcept override {
+      _swiftPart.dispose();
     }
 
   public:

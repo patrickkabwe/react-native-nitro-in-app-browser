@@ -11,7 +11,9 @@
 #include "NitroInAppBrowserOptions.hpp"
 
 #include "JNitroInAppBrowserDismissButtonLabel.hpp"
+#include "JNitroInAppBrowserPresentationStyle.hpp"
 #include "NitroInAppBrowserDismissButtonLabel.hpp"
+#include "NitroInAppBrowserPresentationStyle.hpp"
 #include <optional>
 #include <string>
 
@@ -36,15 +38,15 @@ namespace margelo::nitro::nitroinappbrowser {
       static const auto clazz = javaClassStatic();
       static const auto fieldDismissButtonLabel = clazz->getField<JNitroInAppBrowserDismissButtonLabel>("dismissButtonLabel");
       jni::local_ref<JNitroInAppBrowserDismissButtonLabel> dismissButtonLabel = this->getFieldValue(fieldDismissButtonLabel);
-      static const auto fieldPresentationStyle = clazz->getField<jni::JString>("presentationStyle");
-      jni::local_ref<jni::JString> presentationStyle = this->getFieldValue(fieldPresentationStyle);
+      static const auto fieldPresentationStyle = clazz->getField<JNitroInAppBrowserPresentationStyle>("presentationStyle");
+      jni::local_ref<JNitroInAppBrowserPresentationStyle> presentationStyle = this->getFieldValue(fieldPresentationStyle);
       static const auto fieldBarColor = clazz->getField<jni::JString>("barColor");
       jni::local_ref<jni::JString> barColor = this->getFieldValue(fieldBarColor);
       static const auto fieldControlColor = clazz->getField<jni::JString>("controlColor");
       jni::local_ref<jni::JString> controlColor = this->getFieldValue(fieldControlColor);
       return NitroInAppBrowserOptions(
         dismissButtonLabel != nullptr ? std::make_optional(dismissButtonLabel->toCpp()) : std::nullopt,
-        presentationStyle != nullptr ? std::make_optional(presentationStyle->toStdString()) : std::nullopt,
+        presentationStyle != nullptr ? std::make_optional(presentationStyle->toCpp()) : std::nullopt,
         barColor != nullptr ? std::make_optional(barColor->toStdString()) : std::nullopt,
         controlColor != nullptr ? std::make_optional(controlColor->toStdString()) : std::nullopt
       );
@@ -58,7 +60,7 @@ namespace margelo::nitro::nitroinappbrowser {
     static jni::local_ref<JNitroInAppBrowserOptions::javaobject> fromCpp(const NitroInAppBrowserOptions& value) {
       return newInstance(
         value.dismissButtonLabel.has_value() ? JNitroInAppBrowserDismissButtonLabel::fromCpp(value.dismissButtonLabel.value()) : nullptr,
-        value.presentationStyle.has_value() ? jni::make_jstring(value.presentationStyle.value()) : nullptr,
+        value.presentationStyle.has_value() ? JNitroInAppBrowserPresentationStyle::fromCpp(value.presentationStyle.value()) : nullptr,
         value.barColor.has_value() ? jni::make_jstring(value.barColor.value()) : nullptr,
         value.controlColor.has_value() ? jni::make_jstring(value.controlColor.value()) : nullptr
       );

@@ -1,10 +1,9 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet} from 'react-native';
-import NitroInAppBrowser, {
-  NitroInAppBrowserPresentationStyle,
-} from 'react-native-nitro-in-app-browser';
+import {Alert, Button, StyleSheet} from 'react-native';
+import NitroInAppBrowser from 'react-native-nitro-in-app-browser';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
-const App = () => {
+const AppWrapper = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Button
@@ -15,14 +14,27 @@ const App = () => {
               barColor: 'purple',
               controlColor: '#000000',
               dismissButtonLabel: 'close',
-              presentationStyle: NitroInAppBrowserPresentationStyle.FullScreen,
+              presentationStyle: 'fullScreen',
             });
           } catch (error) {
-            console.error(error);
+            Alert.alert('Error', (error as Error).message, [
+              {
+                text: 'OK',
+                onPress: () => {},
+              },
+            ]);
           }
         }}
       />
     </SafeAreaView>
+  );
+};
+
+const App = () => {
+  return (
+    <SafeAreaProvider>
+      <AppWrapper />
+    </SafeAreaProvider>
   );
 };
 

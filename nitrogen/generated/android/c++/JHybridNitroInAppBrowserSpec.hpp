@@ -29,6 +29,7 @@ namespace margelo::nitro::nitroinappbrowser {
     // C++ constructor (called from Java via `initHybrid()`)
     explicit JHybridNitroInAppBrowserSpec(jni::alias_ref<jhybridobject> jThis) :
       HybridObject(HybridNitroInAppBrowserSpec::TAG),
+      HybridBase(jThis),
       _javaPart(jni::make_global(jThis)) {}
 
   public:
@@ -39,6 +40,7 @@ namespace margelo::nitro::nitroinappbrowser {
 
   public:
     size_t getExternalMemorySize() noexcept override;
+    void dispose() noexcept override;
 
   public:
     inline const jni::global_ref<JHybridNitroInAppBrowserSpec::javaobject>& getJavaPart() const noexcept {

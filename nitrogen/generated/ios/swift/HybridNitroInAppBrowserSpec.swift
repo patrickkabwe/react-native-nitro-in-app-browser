@@ -19,8 +19,9 @@ public protocol HybridNitroInAppBrowserSpec_protocol: HybridObject {
 }
 
 /// See ``HybridNitroInAppBrowserSpec``
-public class HybridNitroInAppBrowserSpec_base {
+open class HybridNitroInAppBrowserSpec_base {
   private weak var cxxWrapper: HybridNitroInAppBrowserSpec_cxx? = nil
+  public init() { }
   public func getCxxWrapper() -> HybridNitroInAppBrowserSpec_cxx {
   #if DEBUG
     guard self is HybridNitroInAppBrowserSpec else {
