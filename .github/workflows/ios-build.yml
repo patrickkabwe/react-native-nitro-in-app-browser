@@ -52,7 +52,7 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: 16.4
+          xcode-version: latest-stable
 
       - name: Install npm dependencies (bun)
         run: bun install
@@ -99,6 +99,11 @@ jobs:
 
       - name: Install npm dependencies (bun)
         run: bun install
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
 
       - name: Disable new architecture in Podfile
         run: sed -i "" "s/ENV\['RCT_NEW_ARCH_ENABLED'\] = '1'/ENV['RCT_NEW_ARCH_ENABLED'] = '0'/g" example/ios/Podfile
