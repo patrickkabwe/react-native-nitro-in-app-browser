@@ -1,19 +1,14 @@
 name: Release
 
 on:
-    push:
-      branches:
-        - main
-        - next
-      paths-ignore:
-        - 'docs/**'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release:
@@ -37,17 +32,17 @@ jobs:
         id: bun-cache
         uses: actions/cache@v4
         with:
-            path: ~/.bun/install/cache
-            key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-            restore-keys: |
-                ${{ runner.os }}-bun-
-        
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
       - name: Install npm dependencies (bun)
         run: bun install
 
       - name: Build lib
         run: bun run build
-        
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
