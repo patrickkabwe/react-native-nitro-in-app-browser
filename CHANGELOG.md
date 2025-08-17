@@ -1,3 +1,20 @@
+## [2.0.0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.2.0...v2.0.0) (2025-08-17)
+
+### ⚠ BREAKING CHANGES
+
+* **ios:** No more `NitroInAppBrowserPresentationStyle` enum import required. Use string literals directly for presentation types.
+
+### ✨ Features
+
+* **ios:** replace enum import with direct string types for `presentationStyle` ([5508dd5](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/5508dd57f6acf537b4aa3417d6016ab5cf15e7f4))
+
+### 🛠️ Other changes
+
+* bump up nitro to v0.28.0 ([7776c7c](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/7776c7c6efdcdfdcd82ff3b13612693311149278))
+* update dependencies and improve iOS build configuration ([1a4751a](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/1a4751a694da4ffdd62292d3ccfeba0f3ff1dea3))
+* update Xcode version in iOS build workflow to 16.4 ([2e32094](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/2e320941a9140bd693b7928ded4206f61de6f2d3))
+* update Xcode version in iOS build workflow to latest stable ([f0582c9](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/f0582c9ef41cb22db20835adbd4c48c8084aa221))
+
 ## [1.2.0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.1.9...v1.2.0) (2025-07-31)
 
 ### ✨ Features
