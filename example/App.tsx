@@ -15,7 +15,7 @@ const App = () => {
               barColor: 'purple',
               controlColor: '#000000',
               dismissButtonLabel: 'close',
-              presentationStyle: NitroInAppBrowserPresentationStyle.FullScreen,
+              presentationStyle: "fullScreen",
             });
           } catch (error) {
             console.error(error);
