@@ -138,7 +138,7 @@ dependencies {
   implementation project(":react-native-nitro-modules")
 
   // Other dependencies
-  implementation "androidx.browser:browser:1.8.0"
+  implementation "androidx.browser:browser:1.9.0"
 }
 
 if (isNewArchitectureEnabled()) {
