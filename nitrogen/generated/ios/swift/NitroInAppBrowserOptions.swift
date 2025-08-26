@@ -84,7 +84,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__barColor.value {
+        if bridge.has_value_std__optional_std__string_(self.__barColor) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__barColor)
           return String(__unwrapped)
         } else {
           return nil
@@ -107,7 +108,8 @@ public extension NitroInAppBrowserOptions {
     @inline(__always)
     get {
       return { () -> String? in
-        if let __unwrapped = self.__controlColor.value {
+        if bridge.has_value_std__optional_std__string_(self.__controlColor) {
+          let __unwrapped = bridge.get_std__optional_std__string_(self.__controlColor)
           return String(__unwrapped)
         } else {
           return nil

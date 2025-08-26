@@ -2,14 +2,11 @@
 
 A Simple React Native Nitro module for in-app browser.
 
-
 [![Build Android](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/android-build.yml/badge.svg)](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/android-build.yml)
 [![Build iOS](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/ios-build.yml/badge.svg)](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/ios-build.yml)
 
 [![npm version](https://img.shields.io/npm/v/react-native-nitro-in-app-browser.svg?style=flat-square)](https://www.npmjs.com/package/react-native-nitro-in-app-browser)
 [![npm downloads](https://img.shields.io/npm/dm/react-native-nitro-in-app-browser.svg?style=flat-square)](https://www.npmjs.com/package/react-native-nitro-in-app-browser)
-
-
 
 ## Installation
 
@@ -17,9 +14,8 @@ A Simple React Native Nitro module for in-app browser.
 > This package requires `react-native-nitro-modules` to be installed first.
 > See [react-native-nitro-modules](https://github.com/mrousavy/nitro) for more information.
 
-
 ```sh
-bun install react-native-nitro-in-app-browser react-native-nitro-modules@0.28.0
+bun install react-native-nitro-in-app-browser react-native-nitro-modules@0.28.1
 cd ios && pod install && cd ..
 ```
 
@@ -28,7 +24,7 @@ cd ios && pod install && cd ..
 ```js
 import React from 'react';
 import { Button, SafeAreaView } from 'react-native';
-import { NitroInAppBrowser } from 'react-native-nitro-in-app-browser';
+import NitroInAppBrowser from 'react-native-nitro-in-app-browser';
 
 const App = () => {
   return (
@@ -41,7 +37,7 @@ const App = () => {
               barColor: 'purple',
               controlColor: '#000000',
               dismissButtonLabel: 'close',
-              presentationStyle: "fullScreen",
+              presentationStyle: 'fullScreen',
             });
           } catch (error) {
             console.error(error);
@@ -56,13 +52,12 @@ export default App;
 ```
 
 ## License
-    
+
 MIT
 
 ---
 
 Bootstrapped with [Create Nitro Modules](https://github.com/patrickkabwe/create-nitro-module)
-
 
 ## Credits
 
