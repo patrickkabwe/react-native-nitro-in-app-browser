@@ -113,7 +113,8 @@ open class HybridNitroInAppBrowserSpec_cxx {
   public final func open(url: std.string, options: bridge.std__optional_NitroInAppBrowserOptions_) -> bridge.Result_std__shared_ptr_Promise_void___ {
     do {
       let __result = try self.__implementation.open(url: String(url), options: { () -> NitroInAppBrowserOptions? in
-        if let __unwrapped = options.value {
+        if bridge.has_value_std__optional_NitroInAppBrowserOptions_(options) {
+          let __unwrapped = bridge.get_std__optional_NitroInAppBrowserOptions_(options)
           return __unwrapped
         } else {
           return nil

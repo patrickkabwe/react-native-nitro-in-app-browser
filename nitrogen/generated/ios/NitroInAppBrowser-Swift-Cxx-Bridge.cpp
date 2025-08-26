@@ -14,7 +14,7 @@
 namespace margelo::nitro::nitroinappbrowser::bridge::swift {
 
   // pragma MARK: std::function<void()>
-  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) {
+  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) noexcept {
     auto swiftClosure = NitroInAppBrowser::Func_void::fromUnsafe(swiftClosureWrapper);
     return [swiftClosure = std::move(swiftClosure)]() mutable -> void {
       swiftClosure.call();
@@ -22,7 +22,7 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
   }
   
   // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
-  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) {
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) noexcept {
     auto swiftClosure = NitroInAppBrowser::Func_void_std__exception_ptr::fromUnsafe(swiftClosureWrapper);
     return [swiftClosure = std::move(swiftClosure)](const std::exception_ptr& error) mutable -> void {
       swiftClosure.call(error);
@@ -30,11 +30,11 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
   }
   
   // pragma MARK: std::shared_ptr<HybridNitroInAppBrowserSpec>
-  std::shared_ptr<HybridNitroInAppBrowserSpec> create_std__shared_ptr_HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer) {
+  std::shared_ptr<HybridNitroInAppBrowserSpec> create_std__shared_ptr_HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer) noexcept {
     NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx swiftPart = NitroInAppBrowser::HybridNitroInAppBrowserSpec_cxx::fromUnsafe(swiftUnsafePointer);
     return std::make_shared<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpecSwift>(swiftPart);
   }
-  void* _Nonnull get_std__shared_ptr_HybridNitroInAppBrowserSpec_(std__shared_ptr_HybridNitroInAppBrowserSpec_ cppType) {
+  void* _Nonnull get_std__shared_ptr_HybridNitroInAppBrowserSpec_(std__shared_ptr_HybridNitroInAppBrowserSpec_ cppType) noexcept {
     std::shared_ptr<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::nitroinappbrowser::HybridNitroInAppBrowserSpecSwift>(cppType);
     #ifdef NITRO_DEBUG
     if (swiftWrapper == nullptr) [[unlikely]] {

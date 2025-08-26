@@ -46,10 +46,10 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    * Specialized version of `std::shared_ptr<Promise<void>>`.
    */
   using std__shared_ptr_Promise_void__ = std::shared_ptr<Promise<void>>;
-  inline std::shared_ptr<Promise<void>> create_std__shared_ptr_Promise_void__() {
+  inline std::shared_ptr<Promise<void>> create_std__shared_ptr_Promise_void__() noexcept {
     return Promise<void>::create();
   }
-  inline PromiseHolder<void> wrap_std__shared_ptr_Promise_void__(std::shared_ptr<Promise<void>> promise) {
+  inline PromiseHolder<void> wrap_std__shared_ptr_Promise_void__(std::shared_ptr<Promise<void>> promise) noexcept {
     return PromiseHolder<void>(std::move(promise));
   }
   
@@ -64,14 +64,14 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
   class Func_void_Wrapper final {
   public:
     explicit Func_void_Wrapper(std::function<void()>&& func): _function(std::make_unique<std::function<void()>>(std::move(func))) {}
-    inline void call() const {
+    inline void call() const noexcept {
       _function->operator()();
     }
   private:
     std::unique_ptr<std::function<void()>> _function;
   } SWIFT_NONCOPYABLE;
-  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper);
-  inline Func_void_Wrapper wrap_Func_void(Func_void value) {
+  Func_void create_Func_void(void* _Nonnull swiftClosureWrapper) noexcept;
+  inline Func_void_Wrapper wrap_Func_void(Func_void value) noexcept {
     return Func_void_Wrapper(std::move(value));
   }
   
@@ -86,14 +86,14 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
   class Func_void_std__exception_ptr_Wrapper final {
   public:
     explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_unique<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
-    inline void call(std::exception_ptr error) const {
+    inline void call(std::exception_ptr error) const noexcept {
       _function->operator()(error);
     }
   private:
     std::unique_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
   } SWIFT_NONCOPYABLE;
-  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper);
-  inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) {
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* _Nonnull swiftClosureWrapper) noexcept;
+  inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) noexcept {
     return Func_void_std__exception_ptr_Wrapper(std::move(value));
   }
   
@@ -102,8 +102,14 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    * Specialized version of `std::optional<NitroInAppBrowserDismissButtonLabel>`.
    */
   using std__optional_NitroInAppBrowserDismissButtonLabel_ = std::optional<NitroInAppBrowserDismissButtonLabel>;
-  inline std::optional<NitroInAppBrowserDismissButtonLabel> create_std__optional_NitroInAppBrowserDismissButtonLabel_(const NitroInAppBrowserDismissButtonLabel& value) {
+  inline std::optional<NitroInAppBrowserDismissButtonLabel> create_std__optional_NitroInAppBrowserDismissButtonLabel_(const NitroInAppBrowserDismissButtonLabel& value) noexcept {
     return std::optional<NitroInAppBrowserDismissButtonLabel>(value);
+  }
+  inline bool has_value_std__optional_NitroInAppBrowserDismissButtonLabel_(const std::optional<NitroInAppBrowserDismissButtonLabel>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline NitroInAppBrowserDismissButtonLabel get_std__optional_NitroInAppBrowserDismissButtonLabel_(const std::optional<NitroInAppBrowserDismissButtonLabel>& optional) noexcept {
+    return *optional;
   }
   
   // pragma MARK: std::optional<NitroInAppBrowserPresentationStyle>
@@ -111,8 +117,14 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    * Specialized version of `std::optional<NitroInAppBrowserPresentationStyle>`.
    */
   using std__optional_NitroInAppBrowserPresentationStyle_ = std::optional<NitroInAppBrowserPresentationStyle>;
-  inline std::optional<NitroInAppBrowserPresentationStyle> create_std__optional_NitroInAppBrowserPresentationStyle_(const NitroInAppBrowserPresentationStyle& value) {
+  inline std::optional<NitroInAppBrowserPresentationStyle> create_std__optional_NitroInAppBrowserPresentationStyle_(const NitroInAppBrowserPresentationStyle& value) noexcept {
     return std::optional<NitroInAppBrowserPresentationStyle>(value);
+  }
+  inline bool has_value_std__optional_NitroInAppBrowserPresentationStyle_(const std::optional<NitroInAppBrowserPresentationStyle>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline NitroInAppBrowserPresentationStyle get_std__optional_NitroInAppBrowserPresentationStyle_(const std::optional<NitroInAppBrowserPresentationStyle>& optional) noexcept {
+    return *optional;
   }
   
   // pragma MARK: std::optional<std::string>
@@ -120,8 +132,14 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    * Specialized version of `std::optional<std::string>`.
    */
   using std__optional_std__string_ = std::optional<std::string>;
-  inline std::optional<std::string> create_std__optional_std__string_(const std::string& value) {
+  inline std::optional<std::string> create_std__optional_std__string_(const std::string& value) noexcept {
     return std::optional<std::string>(value);
+  }
+  inline bool has_value_std__optional_std__string_(const std::optional<std::string>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline std::string get_std__optional_std__string_(const std::optional<std::string>& optional) noexcept {
+    return *optional;
   }
   
   // pragma MARK: std::optional<NitroInAppBrowserOptions>
@@ -129,8 +147,14 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    * Specialized version of `std::optional<NitroInAppBrowserOptions>`.
    */
   using std__optional_NitroInAppBrowserOptions_ = std::optional<NitroInAppBrowserOptions>;
-  inline std::optional<NitroInAppBrowserOptions> create_std__optional_NitroInAppBrowserOptions_(const NitroInAppBrowserOptions& value) {
+  inline std::optional<NitroInAppBrowserOptions> create_std__optional_NitroInAppBrowserOptions_(const NitroInAppBrowserOptions& value) noexcept {
     return std::optional<NitroInAppBrowserOptions>(value);
+  }
+  inline bool has_value_std__optional_NitroInAppBrowserOptions_(const std::optional<NitroInAppBrowserOptions>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline NitroInAppBrowserOptions get_std__optional_NitroInAppBrowserOptions_(const std::optional<NitroInAppBrowserOptions>& optional) noexcept {
+    return *optional;
   }
   
   // pragma MARK: std::shared_ptr<HybridNitroInAppBrowserSpec>
@@ -138,19 +162,19 @@ namespace margelo::nitro::nitroinappbrowser::bridge::swift {
    * Specialized version of `std::shared_ptr<HybridNitroInAppBrowserSpec>`.
    */
   using std__shared_ptr_HybridNitroInAppBrowserSpec_ = std::shared_ptr<HybridNitroInAppBrowserSpec>;
-  std::shared_ptr<HybridNitroInAppBrowserSpec> create_std__shared_ptr_HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer);
-  void* _Nonnull get_std__shared_ptr_HybridNitroInAppBrowserSpec_(std__shared_ptr_HybridNitroInAppBrowserSpec_ cppType);
+  std::shared_ptr<HybridNitroInAppBrowserSpec> create_std__shared_ptr_HybridNitroInAppBrowserSpec_(void* _Nonnull swiftUnsafePointer) noexcept;
+  void* _Nonnull get_std__shared_ptr_HybridNitroInAppBrowserSpec_(std__shared_ptr_HybridNitroInAppBrowserSpec_ cppType) noexcept;
   
   // pragma MARK: std::weak_ptr<HybridNitroInAppBrowserSpec>
   using std__weak_ptr_HybridNitroInAppBrowserSpec_ = std::weak_ptr<HybridNitroInAppBrowserSpec>;
-  inline std__weak_ptr_HybridNitroInAppBrowserSpec_ weakify_std__shared_ptr_HybridNitroInAppBrowserSpec_(const std::shared_ptr<HybridNitroInAppBrowserSpec>& strong) { return strong; }
+  inline std__weak_ptr_HybridNitroInAppBrowserSpec_ weakify_std__shared_ptr_HybridNitroInAppBrowserSpec_(const std::shared_ptr<HybridNitroInAppBrowserSpec>& strong) noexcept { return strong; }
   
   // pragma MARK: Result<std::shared_ptr<Promise<void>>>
   using Result_std__shared_ptr_Promise_void___ = Result<std::shared_ptr<Promise<void>>>;
-  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::shared_ptr<Promise<void>>& value) {
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::shared_ptr<Promise<void>>& value) noexcept {
     return Result<std::shared_ptr<Promise<void>>>::withValue(value);
   }
-  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) {
+  inline Result_std__shared_ptr_Promise_void___ create_Result_std__shared_ptr_Promise_void___(const std::exception_ptr& error) noexcept {
     return Result<std::shared_ptr<Promise<void>>>::withError(error);
   }
 
