@@ -1,6 +1,9 @@
 #include <jni.h>
+#include <fbjni/fbjni.h>
 #include "NitroInAppBrowserOnLoad.hpp"
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void*) {
-  return margelo::nitro::nitroinappbrowser::initialize(vm);
+  return facebook::jni::initialize(vm, [] {
+    margelo::nitro::nitroinappbrowser::registerAllNatives();
+  });
 }
