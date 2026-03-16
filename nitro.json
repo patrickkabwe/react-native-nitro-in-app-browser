@@ -14,8 +14,14 @@
   },
   "autolinking": {
     "NitroInAppBrowser": {
-      "swift": "HybridNitroInAppBrowser",
-      "kotlin": "HybridNitroInAppBrowser"
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridNitroInAppBrowser"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridNitroInAppBrowser"
+      }
     }
   },
   "ignorePaths": [
