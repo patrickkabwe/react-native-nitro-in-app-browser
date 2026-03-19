@@ -1,3 +1,20 @@
+## [2.0.2](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v2.0.1...v2.0.2) (2026-03-19)
+
+### 🐛 Bug Fixes
+
+* pin release workflow to supported node version ([f970211](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/f970211202151cbd7849f1f1807df3a2efe499bd))
+
+### 🛠️ Other changes
+
+* bump up rn version ([b488e55](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/b488e558ffb2c3692187f8c745d7f6127a41f087))
+* **deps-dev:** bump semantic-release from 24.2.9 to 25.0.2 ([54953ab](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/54953ab950c78737a3f9b9f58041e6b40796b255))
+* **deps:** bump actions/cache from 4 to 5 ([a7117f6](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/a7117f6ca0b893b5ccda6c04ca53f6a8b3f9be68))
+* **deps:** bump actions/checkout from 5 to 6 ([48a0200](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/48a0200706c600a405bf939de51e9d7265dc7569))
+* **deps:** bump androidx.browser:browser in /android ([066ddb0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/066ddb0de3ba8b65593fe4b45cea0a760b6ecc3b))
+* **deps:** bump com.android.tools.build:gradle in /android ([521eb3e](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/521eb3e3f977c2a9bbff050d9a5fc85ebd0e5632))
+* **deps:** bump concurrent-ruby from 1.3.5 to 1.3.6 in /example ([711f828](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/711f828694c1f2239c6d212ac25172e53ef0ddd2))
+* **deps:** bump gradle-wrapper in /example/android ([76b4fd0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/76b4fd09690d4a2cfdf35b3f800433bab7c97225))
+
 ## [2.0.1](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v2.0.0...v2.0.1) (2026-03-19)
 
 ### 🐛 Bug Fixes
