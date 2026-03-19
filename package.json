@@ -49,6 +49,9 @@
     "license": "MIT",
     "bugs": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser/issues",
     "homepage": "https://github.com/patrickkabwe/react-native-nitro-in-app-browser#readme",
+    "engines": {
+        "node": "^22.14.0 || >=24.10.0"
+    },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/",
         "provenance": true
