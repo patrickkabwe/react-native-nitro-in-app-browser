@@ -1,6 +1,6 @@
 # react-native-nitro-in-app-browser
 
-A Simple React Native Nitro module for in-app browser.
+A Simple Nitro module to open an in-app browser in your React Native app.
 
 [![Build Android](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/android-build.yml/badge.svg)](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/android-build.yml)
 [![Build iOS](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/ios-build.yml/badge.svg)](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/actions/workflows/ios-build.yml)

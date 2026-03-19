@@ -1,7 +1,8 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json",
+  "extends": "@react-native/typescript-config",
   "compilerOptions": {
     "strict": true,
+    "types": ["jest"],
     "baseUrl": ".",
     "paths": {
       "react-native-nitro-in-app-browser": ["../src"]
