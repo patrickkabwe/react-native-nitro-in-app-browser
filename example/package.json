@@ -11,8 +11,8 @@
         "pod": "bundle install && bundle exec pod install --project-directory=ios"
     },
     "dependencies": {
-        "react": "19.1.0",
-        "react-native": "0.81.0",
+        "react": "19.2.3",
+        "react-native": "0.84.1",
         "react-native-nitro-modules": "^0.35.0",
         "react-native-safe-area-context": "^5.6.1"
     },
@@ -20,17 +20,17 @@
         "@babel/core": "^7.25.2",
         "@babel/preset-env": "^7.25.3",
         "@babel/runtime": "^7.25.0",
-        "@react-native-community/cli": "20.0.0",
-        "@react-native-community/cli-platform-android": "20.0.0",
-        "@react-native-community/cli-platform-ios": "20.0.0",
-        "@react-native/babel-preset": "0.81.0",
-        "@react-native/eslint-config": "0.81.0",
-        "@react-native/metro-config": "0.81.0",
-        "@react-native/typescript-config": "0.81.0",
+        "@react-native-community/cli": "20.1.0",
+        "@react-native-community/cli-platform-android": "20.1.0",
+        "@react-native-community/cli-platform-ios": "20.1.0",
+        "@react-native/babel-preset": "0.84.1",
+        "@react-native/eslint-config": "0.84.1",
+        "@react-native/metro-config": "0.84.1",
+        "@react-native/typescript-config": "0.84.1",
         "@types/jest": "^29.5.13",
         "babel-plugin-module-resolver": "^5.0.2"
     },
     "engines": {
-        "node": ">=18"
+        "node": ">= 22.11.0"
     }
 }
