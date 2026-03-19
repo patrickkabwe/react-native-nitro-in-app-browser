@@ -1,3 +1,37 @@
+## [2.0.1](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v2.0.0...v2.0.1) (2026-03-19)
+
+### 🐛 Bug Fixes
+
+* update Xcode version in iOS build workflow to 16.4 ([27a3313](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/27a331346f8989e18714727173f4fca3418d751b))
+
+### 📚 Documentation
+
+* update README.md ([79519bf](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/79519bf19e6ae5463491802278ab564e6398dbc7))
+
+### 🛠️ Other changes
+
+* bump nitro modules to v0.35 ([1e76d03](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/1e76d03ad598ca87eaddedef2162f1053a92f679))
+* **deps-dev:** bump nitro-codegen from 0.28.0 to 0.28.1 ([4e24483](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/4e2448331a7dfd34abd94abf61b10799e4359787))
+* **deps-dev:** bump semantic-release from 24.2.6 to 24.2.7 ([1ea3757](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/1ea375747c5591017afdfc644384b7187a5e2aa5))
+* **deps:** bump actions/checkout from 4 to 5 ([eaab917](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/eaab917af8fa42ab64e997147280206ae1e2f95d))
+* **deps:** bump actions/setup-java from 4 to 5 ([7a331d9](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/7a331d9715d1a06bfb22593ba08e27ffded73ca7))
+* **deps:** bump activesupport from 7.2.2.1 to 7.2.2.2 in /example ([b277363](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/b277363b1a1d88433a9d89f23664b90df1006e9a))
+* **deps:** bump activesupport from 7.2.2.2 to 7.2.3 in /example ([baf8f84](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/baf8f8434069c0c85525ad20aa3a8dafc5871a75))
+* **deps:** bump benchmark from 0.4.0 to 0.5.0 in /example ([d289aa7](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/d289aa74efb8564bd44fd9f14da6eeec98259f53))
+* **deps:** bump bigdecimal from 3.1.9 to 3.3.0 in /example ([c16e43c](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/c16e43cbc2781887d058f022a5230fa519cb5322))
+* **deps:** bump bigdecimal from 3.3.0 to 3.3.1 in /example ([5e3539d](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/5e3539d6a2a0bb5521e42f4997035b24bacf1f5b))
+* **deps:** bump com.android.tools.build:gradle in /android ([4dee4b0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/4dee4b0449956a09683fca8995de6563fa0afa3b))
+* **deps:** bump com.android.tools.build:gradle in /android ([2ab153f](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/2ab153f22a479c5fc3c8361e1037b3c0bd3338b5))
+* **deps:** bump com.android.tools.build:gradle in /android ([c36660c](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/c36660c10d80d7cebad8b23180bd8a8f96e15fd8))
+* **deps:** bump com.android.tools.build:gradle in /android ([f01ca4a](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/f01ca4a5e2beda5f7e0703b9c570857a5820f432))
+* **deps:** bump react-native-nitro-modules in /example ([aac7dc5](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/aac7dc5b10bdea62ce131e66e784e8b0e0e63f39))
+* **deps:** bump react-native-safe-area-context in /example ([ff7c155](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/ff7c15564a902bf5a2e859e05f02241679b5d2e0))
+* **deps:** bump rexml from 3.4.1 to 3.4.2 in /example ([c4bbf16](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/c4bbf162fabfe1b28c25990217f52dd465fc0460))
+* **deps:** bump up nitro to v0.28.1 ([33b9ca5](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/33b9ca51831b38e96b02d76cd3e7b8c4cad2ca5c))
+* **release:** enhance GitHub Actions workflow by setting dynamic Git author and committer information ([8e021aa](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/8e021aaff83613b89b91d6c2aca71e558c87bcdb))
+* **release:** update cache key in GitHub Actions workflow to use bun.lock instead of bun.lockb ([f205bb6](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/f205bb67de5d8695f3d5c56af5c157779c6fb8d0))
+* **release:** update GitHub Actions workflow to use workflow_dispatch trigger and clean up formatting ([610a09a](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/commit/610a09ad7642427309694c2848b07f87decf4f9f))
+
 ## [2.0.0](https://github.com/patrickkabwe/react-native-nitro-in-app-browser/compare/v1.2.0...v2.0.0) (2025-08-17)
 
 ### ⚠ BREAKING CHANGES
